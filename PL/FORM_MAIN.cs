@@ -90,5 +90,12 @@ namespace Products_Management.PL
             PL.FRM_PRODUCTS frm = new PL.FRM_PRODUCTS();
             frm.ShowDialog();
         }
+
+        private void إدارةالأصنافToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_CATEGORIES frm = new PL.FRM_CATEGORIES();
+            frm.ShowDialog();
+
+        }
     }
 }
