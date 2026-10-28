@@ -233,6 +233,7 @@
             button13.TabIndex = 4;
             button13.Text = "طباعة الصنف المحدد";
             button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
             // 
             // btnEdit
             // 
@@ -242,6 +243,7 @@
             btnEdit.TabIndex = 3;
             btnEdit.Text = "تعديل";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -251,6 +253,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "حذف";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -260,6 +263,7 @@
             btnAdd.TabIndex = 1;
             btnAdd.Text = "إضافة";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnNew
             // 

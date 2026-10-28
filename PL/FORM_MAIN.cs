@@ -97,5 +97,11 @@ namespace Products_Management.PL
             frm.ShowDialog();
 
         }
+
+        private void إدارةالعملاءToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PL.FRM_CUSTOMERS frm = new PL.FRM_CUSTOMERS();
+            frm.ShowDialog();
+        }
     }
 }
