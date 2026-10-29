@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net.Http.Headers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Products_Management.PL
 {
@@ -25,15 +26,25 @@ namespace Products_Management.PL
         {
             try
             {
-                MemoryStream ms = new MemoryStream();
-                pbox.Image.Save(ms, pbox.Image.RawFormat);
-                byte[] picture_array = ms.ToArray();
-                cust.ADD_CUSTOMER(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtEmail.Text, picture_array);
+                byte[] picture_array;
+                if (pbox.Image == null)
+                {
+                    picture_array = new byte[0];
+                    cust.ADD_CUSTOMER(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtEmail.Text, picture_array, "without_image");
+                }
+                else
+                {
+                    MemoryStream ms = new MemoryStream();
+                    pbox.Image.Save(ms, pbox.Image.RawFormat);
+                    picture_array = ms.ToArray();
+                    cust.ADD_CUSTOMER(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtEmail.Text, picture_array, "with_image");
+                }
                 MessageBox.Show("Added Succesfully", "Add Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex + "Error Message");
+                MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -51,6 +62,52 @@ namespace Products_Management.PL
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtTel.Clear();
+            txtEmail.Clear();
+            pbox.Image = null;
+            txtFirstName.Focus();
+
+        }
+
+        private void txtFirstName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtLastName.Focus();
+                txtLastName.SelectAll();
+            }
+        }
+
+        private void txtLastName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTel.Focus();
+                txtTel.SelectAll();
+            }
+        }
+
+        private void txtTel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtEmail.Focus();
+                txtEmail.SelectAll();
+            }
+        }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnAdd.Focus();
+            }
         }
     }
 }

@@ -35,6 +35,7 @@
             btnAdd = new Button();
             btnNew = new Button();
             groupBox1 = new GroupBox();
+            label6 = new Label();
             pbox = new PictureBox();
             txtEmail = new TextBox();
             txtTel = new TextBox();
@@ -54,7 +55,6 @@
             button1 = new Button();
             textBox5 = new TextBox();
             label1 = new Label();
-            label6 = new Label();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbox).BeginInit();
@@ -123,6 +123,7 @@
             btnNew.TabIndex = 0;
             btnNew.Text = "جديد";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // groupBox1
             // 
@@ -149,6 +150,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "بيانات العميل";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(8, 23);
+            label6.Name = "label6";
+            label6.Size = new Size(187, 20);
+            label6.TabIndex = 18;
+            label6.Text = "اضغط على الصورة لاضافتها";
+            // 
             // pbox
             // 
             pbox.BackColor = SystemColors.ActiveCaption;
@@ -167,6 +177,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(207, 27);
             txtEmail.TabIndex = 16;
+            txtEmail.KeyDown += txtEmail_KeyDown;
             // 
             // txtTel
             // 
@@ -174,6 +185,7 @@
             txtTel.Name = "txtTel";
             txtTel.Size = new Size(207, 27);
             txtTel.TabIndex = 15;
+            txtTel.KeyDown += txtTel_KeyDown;
             // 
             // txtLastName
             // 
@@ -181,6 +193,7 @@
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(207, 27);
             txtLastName.TabIndex = 14;
+            txtLastName.KeyDown += txtLastName_KeyDown;
             // 
             // txtFirstName
             // 
@@ -188,6 +201,7 @@
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(207, 27);
             txtFirstName.TabIndex = 13;
+            txtFirstName.KeyDown += txtFirstName_KeyDown;
             // 
             // label5
             // 
@@ -321,15 +335,6 @@
             label1.Size = new Size(67, 20);
             label1.TabIndex = 14;
             label1.Text = "ابحث هنا:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(8, 23);
-            label6.Name = "label6";
-            label6.Size = new Size(187, 20);
-            label6.TabIndex = 18;
-            label6.Text = "اضغط على الصورة لاضافتها";
             // 
             // FRM_CUSTOMERS
             // 

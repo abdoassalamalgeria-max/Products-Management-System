@@ -12,12 +12,12 @@ namespace Products_Management.BL
     {
         //functin that add CUSTOMER from data base
         public void ADD_CUSTOMER(string FIRST_NAME, string LAST_NAME,
-                                string TEL, string EMAIL, byte[] img)
+                                string TEL, string EMAIL, byte[] img, string criterion)
         {
             DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
             dal.Open();
 
-            SqlParameter[] param = new SqlParameter[5];
+            SqlParameter[] param = new SqlParameter[6];
             param[0] = new SqlParameter("@first_name", SqlDbType.VarChar, 50);
             param[0].Value = FIRST_NAME;
             param[1] = new SqlParameter("@last_name", SqlDbType.VarChar, 50);
@@ -28,7 +28,8 @@ namespace Products_Management.BL
             param[3].Value = EMAIL;
             param[4] = new SqlParameter("@picture", SqlDbType.Image);
             param[4].Value = img;
-
+            param[5] = new SqlParameter("@criterion", SqlDbType.VarChar, 50);
+            param[5].Value = criterion;
 
             dal.ExecuteCommand("ADD_CUSTOMER", param);
 
