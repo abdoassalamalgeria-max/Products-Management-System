@@ -35,5 +35,18 @@ namespace Products_Management.BL
 
             dal.Close();
         }
+
+        //دالة تجلب كل العملاء من قاعدة البيانات
+        public DataTable Get_ALL_Custmers()
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+
+            DataTable dt = dal.SelectData("Get_ALL_Custmers", null);
+
+            dal.Close();
+
+            return dt;
+        }
+
     }
 }
