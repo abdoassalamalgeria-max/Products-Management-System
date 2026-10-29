@@ -18,7 +18,7 @@ namespace Products_Management.PL
     public partial class FRM_CUSTOMERS : Form
     {
         BL.CLS_CUSTOMERS cust = new BL.CLS_CUSTOMERS();
-
+        int ID;
         public FRM_CUSTOMERS()
         {
             InitializeComponent();
@@ -130,6 +130,7 @@ namespace Products_Management.PL
             try
             {
                 pbox.Image = null;
+                ID = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
                 this.txtFirstName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 this.txtLastName.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 this.txtTel.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -138,12 +139,60 @@ namespace Products_Management.PL
                 byte[] picture_array = (byte[])this.dataGridView1.CurrentRow.Cells[5].Value;
                 MemoryStream ms = new MemoryStream(picture_array);
                 pbox.Image = Image.FromStream(ms);
+
             }
             catch
             {
                 return;
             }
 
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte[] picture_array;
+                if (pbox.Image == null)
+                {
+                    picture_array = new byte[0];
+                    cust.EDIT_CUSTOMER(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtEmail.Text, picture_array, "without_image", ID);
+                }
+                else
+                {
+                    MemoryStream ms = new MemoryStream();
+                    pbox.Image.Save(ms, pbox.Image.RawFormat);
+                    picture_array = ms.ToArray();
+                    cust.EDIT_CUSTOMER(txtFirstName.Text, txtLastName.Text, txtTel.Text, txtEmail.Text, picture_array, "with_image", ID);
+                }
+                MessageBox.Show("Edited Succesfully", "Edit Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.dataGridView1.DataSource = cust.Get_ALL_Custmers();
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("هل تريد حذف العميل المحدد؟", "رسالة حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                try
+                {
+                    cust.DeleteCustomer(this.dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    MessageBox.Show("تم حذف العميل بنجاح", "رسالة حذف العميل", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.dataGridView1.DataSource = cust.Get_ALL_Custmers(); // لعملية تحديث البيانات بعد نجاح عملية الحذف
+                }
+                catch
+                {
+                    MessageBox.Show("رسالة خطأ، لم يتم حذف العميل");
+                }
+            }
+            else
+            {
+                MessageBox.Show("تمت الغاء عملية الحذف");
+            }
         }
     }
 }

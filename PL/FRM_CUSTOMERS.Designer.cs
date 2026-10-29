@@ -95,6 +95,7 @@
             btnEdit.TabIndex = 3;
             btnEdit.Text = "تعديل";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -104,6 +105,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "حذف";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
