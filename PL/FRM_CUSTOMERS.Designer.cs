@@ -52,8 +52,8 @@
             label2 = new Label();
             groupBox3 = new GroupBox();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            textBox5 = new TextBox();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
             label1 = new Label();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -175,7 +175,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(206, 158);
+            txtEmail.Location = new Point(216, 158);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(207, 27);
             txtEmail.TabIndex = 16;
@@ -183,7 +183,7 @@
             // 
             // txtTel
             // 
-            txtTel.Location = new Point(206, 118);
+            txtTel.Location = new Point(216, 118);
             txtTel.Name = "txtTel";
             txtTel.Size = new Size(207, 27);
             txtTel.TabIndex = 15;
@@ -191,7 +191,7 @@
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(206, 75);
+            txtLastName.Location = new Point(216, 75);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(207, 27);
             txtLastName.TabIndex = 14;
@@ -199,7 +199,7 @@
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(206, 33);
+            txtFirstName.Location = new Point(216, 33);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(207, 27);
             txtFirstName.TabIndex = 13;
@@ -289,8 +289,8 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(dataGridView1);
-            groupBox3.Controls.Add(button1);
-            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(btnSearch);
+            groupBox3.Controls.Add(txtSearch);
             groupBox3.Controls.Add(label1);
             groupBox3.Location = new Point(578, 12);
             groupBox3.Name = "groupBox3";
@@ -317,21 +317,23 @@
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.Click += dataGridView1_Click;
             // 
-            // button1
+            // btnSearch
             // 
-            button1.Location = new Point(6, 23);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 16;
-            button1.Text = "موافق";
-            button1.UseVisualStyleBackColor = true;
+            btnSearch.Location = new Point(6, 23);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 16;
+            btnSearch.Text = "موافق";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += button1_Click;
             // 
-            // textBox5
+            // txtSearch
             // 
-            textBox5.Location = new Point(106, 24);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(342, 27);
-            textBox5.TabIndex = 15;
+            txtSearch.Location = new Point(106, 24);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(342, 27);
+            txtSearch.TabIndex = 15;
+            txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // label1
             // 
@@ -356,7 +358,7 @@
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "إدارة العملاء";
+            Text = " ";
             Load += FRM_CUSTOMERS_Load;
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -393,8 +395,8 @@
         private PictureBox pbox;
         private GroupBox groupBox3;
         private DataGridView dataGridView1;
-        private Button button1;
-        private TextBox textBox5;
+        private Button btnSearch;
+        private TextBox txtSearch;
         private Label label1;
         private Label label6;
     }

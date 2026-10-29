@@ -194,5 +194,20 @@ namespace Products_Management.PL
                 MessageBox.Show("تمت الغاء عملية الحذف");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = cust.Search_Customer(txtSearch.Text);
+
+        }
+
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            //معناه تنفيذ الحدث في حالة الضغط على إينتور
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);
+            }
+        }
     }
 }

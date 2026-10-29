@@ -93,6 +93,19 @@ namespace Products_Management.BL
             }
         }
 
+        //دالة تجلب كل العملاء من قاعدة البيانات
+        public DataTable Search_Customer(string criterion)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            SqlParameter[] param = new SqlParameter[1];
+            param[0] = new SqlParameter("@Criterion", SqlDbType.VarChar, 50);
+            param[0].Value = criterion;
+            DataTable dt = dal.SelectData("Search_Customer", param);
+
+            dal.Close();
+
+            return dt;
+        }
 
 
     }
