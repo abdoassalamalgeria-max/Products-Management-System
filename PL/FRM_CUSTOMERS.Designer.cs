@@ -109,6 +109,7 @@
             // 
             // btnAdd
             // 
+            btnAdd.Enabled = false;
             btnAdd.Location = new Point(339, 28);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
@@ -249,6 +250,7 @@
             btnLast.TabIndex = 7;
             btnLast.Text = ">>||";
             btnLast.UseVisualStyleBackColor = true;
+            btnLast.Click += btnLast_Click;
             // 
             // btnNext
             // 
@@ -258,6 +260,7 @@
             btnNext.TabIndex = 5;
             btnNext.Text = "<<";
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // btnFirst
             // 
@@ -267,6 +270,7 @@
             btnFirst.TabIndex = 4;
             btnFirst.Text = "||<<";
             btnFirst.UseVisualStyleBackColor = true;
+            btnFirst.Click += btnFirst_Click;
             // 
             // btnPrevious
             // 
@@ -276,6 +280,7 @@
             btnPrevious.TabIndex = 6;
             btnPrevious.Text = ">>";
             btnPrevious.UseVisualStyleBackColor = true;
+            btnPrevious.Click += btnPrevious_Click;
             // 
             // label2
             // 

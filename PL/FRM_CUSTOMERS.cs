@@ -18,7 +18,7 @@ namespace Products_Management.PL
     public partial class FRM_CUSTOMERS : Form
     {
         BL.CLS_CUSTOMERS cust = new BL.CLS_CUSTOMERS();
-        int ID;
+        int ID, position;
         public FRM_CUSTOMERS()
         {
             InitializeComponent();
@@ -45,6 +45,8 @@ namespace Products_Management.PL
                 }
                 MessageBox.Show("Added Succesfully", "Add Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.dataGridView1.DataSource = cust.Get_ALL_Custmers();
+                btnAdd.Enabled = false;
+                btnNew.Enabled = true;
 
             }
             catch (Exception ex)
@@ -77,6 +79,8 @@ namespace Products_Management.PL
             txtEmail.Clear();
             pbox.Image = null;
             txtFirstName.Focus();
+            btnAdd.Enabled = true;
+            btnNew.Enabled = false;
 
         }
 
@@ -122,7 +126,8 @@ namespace Products_Management.PL
 
         private void FRM_CUSTOMERS_Load(object sender, EventArgs e)
         {
-
+            position = cust.Get_ALL_Custmers().Rows.Count - 1;
+            this.lblposition.Text = $"0/{position}";
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -150,6 +155,12 @@ namespace Products_Management.PL
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (ID == 0)
+            {
+                MessageBox.Show("العميل المراد تعديله غير موجود");
+                return;
+            }
+
             try
             {
                 byte[] picture_array;
@@ -176,6 +187,12 @@ namespace Products_Management.PL
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (ID == 0)
+            {
+                MessageBox.Show("العميل المراد حذفه غير موجود");
+                return;
+            }
+
             if (MessageBox.Show("هل تريد حذف العميل المحدد؟", "رسالة حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 try
@@ -208,6 +225,72 @@ namespace Products_Management.PL
             {
                 button1_Click(sender, e);
             }
+        }
+
+        // انشاء دالة تقوم بالتنقل بين العملاء
+        public void Navigate(int Index)
+        {
+            try
+            {
+                pbox.Image = null;
+                DataTable dt = cust.Get_ALL_Custmers();
+                ID = Convert.ToInt32(dt.Rows[Index][0]);
+                txtFirstName.Text = dt.Rows[Index][1].ToString();
+                txtLastName.Text = dt.Rows[Index][2].ToString();
+                txtTel.Text = dt.Rows[Index][3].ToString();
+                txtEmail.Text = dt.Rows[Index][4].ToString();
+
+                byte[] picture_array = (byte[])dt.Rows[Index][5];
+                MemoryStream ms = new MemoryStream(picture_array);
+                pbox.Image = Image.FromStream(ms);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex + "هناك مشكلة");
+            }
+
+
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            this.Navigate(0);
+            lblposition.Text = "0/6";
+
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            position = cust.Get_ALL_Custmers().Rows.Count - 1;
+            Navigate(position);
+            lblposition.Text = position.ToString() + "/6";
+
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (position == 0)
+            {
+                MessageBox.Show("هذا هو آخر عنصر");
+                return;
+            }
+            position -= 1;
+            Navigate(position);
+            lblposition.Text = position.ToString() + "/6";
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (position == cust.Get_ALL_Custmers().Rows.Count - 1)
+            {
+                MessageBox.Show("هذا هو أول عنصر");
+                return;
+            }
+
+            position += 1;
+            Navigate(position);
+            lblposition.Text = position.ToString() + "/6";
         }
     }
 }
