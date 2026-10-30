@@ -103,5 +103,11 @@ namespace Products_Management.PL
             PL.FRM_CUSTOMERS frm = new PL.FRM_CUSTOMERS();
             frm.ShowDialog();
         }
+
+        private void إدارةالمبيعاتToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PL.FRM_ORDERS frm = new PL.FRM_ORDERS();    
+            frm.ShowDialog();   
+        }
     }
 }
