@@ -27,7 +27,7 @@ namespace Products_Management.PL
         private void btnEnter_Click(object sender, EventArgs e)
         {
             DataTable dt = log.LOGIN(txtID.Text, txtPWD.Text);
-            if (dt.Rows.Count > 0 )
+            if (dt.Rows.Count > 0)
             {
                 FORM_MAIN.getMainForm.حفظنسخةاحتياطيةToolStripMenuItem.Enabled = true;
                 FORM_MAIN.getMainForm.استعادةنسخةاحتياطيةToolStripMenuItem.Enabled = true;
@@ -43,6 +43,11 @@ namespace Products_Management.PL
             {
                 MessageBox.Show("Loggin failed");
             }
+        }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

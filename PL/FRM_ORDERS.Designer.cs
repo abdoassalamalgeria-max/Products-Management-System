@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            btnClose = new Button();
+            btnPrint = new Button();
+            btnSave = new Button();
+            btnNEw = new Button();
+            btnSelectLine = new Button();
             label1 = new Label();
             txtToal = new TextBox();
             dataGridView1 = new DataGridView();
@@ -44,78 +44,82 @@
             label8 = new Label();
             textBox8 = new TextBox();
             label9 = new Label();
-            textBox9 = new TextBox();
+            txtOrderID = new TextBox();
             label10 = new Label();
             groupBox3 = new GroupBox();
             button6 = new Button();
-            pictureBox1 = new PictureBox();
-            textBox5 = new TextBox();
+            pbCust = new PictureBox();
+            txtEmail = new TextBox();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txtTel = new TextBox();
             label5 = new Label();
-            textBox3 = new TextBox();
+            txtLastName = new TextBox();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtFirstName = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtID = new TextBox();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbCust).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnClose
             // 
-            button1.Location = new Point(724, 572);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(106, 30);
-            button1.TabIndex = 0;
-            button1.Text = "خروج";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnClose.Location = new Point(724, 572);
+            btnClose.Margin = new Padding(3, 4, 3, 4);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(106, 30);
+            btnClose.TabIndex = 5;
+            btnClose.Text = "خروج";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += button1_Click;
             // 
-            // button2
+            // btnPrint
             // 
-            button2.Location = new Point(584, 572);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(108, 30);
-            button2.TabIndex = 1;
-            button2.Text = "طباعة الفاتورة";
-            button2.UseVisualStyleBackColor = true;
+            btnPrint.Enabled = false;
+            btnPrint.Location = new Point(584, 572);
+            btnPrint.Margin = new Padding(3, 4, 3, 4);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(108, 30);
+            btnPrint.TabIndex = 4;
+            btnPrint.Text = "طباعة الفاتورة";
+            btnPrint.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSave
             // 
-            button3.Location = new Point(435, 572);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 30);
-            button3.TabIndex = 2;
-            button3.Text = "حفظ البيعة";
-            button3.UseVisualStyleBackColor = true;
+            btnSave.Enabled = false;
+            btnSave.Location = new Point(435, 572);
+            btnSave.Margin = new Padding(3, 4, 3, 4);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(112, 30);
+            btnSave.TabIndex = 3;
+            btnSave.Text = "حفظ البيعة";
+            btnSave.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnNEw
             // 
-            button4.Location = new Point(273, 572);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(127, 30);
-            button4.TabIndex = 3;
-            button4.Text = "البيعة الجديدة";
-            button4.UseVisualStyleBackColor = true;
+            btnNEw.Location = new Point(273, 572);
+            btnNEw.Margin = new Padding(3, 4, 3, 4);
+            btnNEw.Name = "btnNEw";
+            btnNEw.Size = new Size(127, 30);
+            btnNEw.TabIndex = 2;
+            btnNEw.Text = "البيعة الجديدة";
+            btnNEw.UseVisualStyleBackColor = true;
+            btnNEw.Click += button4_Click;
             // 
-            // button5
+            // btnSelectLine
             // 
-            button5.Location = new Point(17, 525);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(241, 30);
-            button5.TabIndex = 4;
-            button5.Text = "جذف السطر المحدد";
-            button5.UseVisualStyleBackColor = true;
+            btnSelectLine.Enabled = false;
+            btnSelectLine.Location = new Point(17, 525);
+            btnSelectLine.Margin = new Padding(3, 4, 3, 4);
+            btnSelectLine.Name = "btnSelectLine";
+            btnSelectLine.Size = new Size(241, 30);
+            btnSelectLine.TabIndex = 0;
+            btnSelectLine.Text = "جذف السطر المحدد";
+            btnSelectLine.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -131,8 +135,9 @@
             txtToal.Location = new Point(853, 523);
             txtToal.Margin = new Padding(3, 4, 3, 4);
             txtToal.Name = "txtToal";
+            txtToal.ReadOnly = true;
             txtToal.Size = new Size(218, 28);
-            txtToal.TabIndex = 6;
+            txtToal.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -165,14 +170,14 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(textBox8);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(textBox9);
+            groupBox2.Controls.Add(txtOrderID);
             groupBox2.Controls.Add(label10);
             groupBox2.Location = new Point(17, 16);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 4, 3, 4);
             groupBox2.Size = new Size(461, 240);
-            groupBox2.TabIndex = 10;
+            groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "بيانات الفاتورة";
             // 
@@ -200,7 +205,7 @@
             textBox7.Margin = new Padding(3, 4, 3, 4);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(286, 28);
-            textBox7.TabIndex = 20;
+            textBox7.TabIndex = 1;
             // 
             // label8
             // 
@@ -219,7 +224,7 @@
             textBox8.Name = "textBox8";
             textBox8.ScrollBars = ScrollBars.Vertical;
             textBox8.Size = new Size(286, 89);
-            textBox8.TabIndex = 18;
+            textBox8.TabIndex = 0;
             // 
             // label9
             // 
@@ -230,14 +235,14 @@
             label9.TabIndex = 17;
             label9.Text = "وصف الفاتورة";
             // 
-            // textBox9
+            // txtOrderID
             // 
-            textBox9.Location = new Point(38, 33);
-            textBox9.Margin = new Padding(3, 4, 3, 4);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(286, 28);
-            textBox9.TabIndex = 16;
+            txtOrderID.Location = new Point(38, 33);
+            txtOrderID.Margin = new Padding(3, 4, 3, 4);
+            txtOrderID.Name = "txtOrderID";
+            txtOrderID.ReadOnly = true;
+            txtOrderID.Size = new Size(286, 28);
+            txtOrderID.TabIndex = 16;
             // 
             // label10
             // 
@@ -251,23 +256,23 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(button6);
-            groupBox3.Controls.Add(pictureBox1);
-            groupBox3.Controls.Add(textBox5);
+            groupBox3.Controls.Add(pbCust);
+            groupBox3.Controls.Add(txtEmail);
             groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(txtTel);
             groupBox3.Controls.Add(label5);
-            groupBox3.Controls.Add(textBox3);
+            groupBox3.Controls.Add(txtLastName);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(txtFirstName);
             groupBox3.Controls.Add(label3);
-            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(txtID);
             groupBox3.Controls.Add(label2);
             groupBox3.Location = new Point(485, 16);
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
             groupBox3.Size = new Size(586, 240);
-            groupBox3.TabIndex = 11;
+            groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "بيانات العميل";
             // 
@@ -277,27 +282,30 @@
             button6.Margin = new Padding(3, 4, 3, 4);
             button6.Name = "button6";
             button6.Size = new Size(87, 30);
-            button6.TabIndex = 18;
+            button6.TabIndex = 1;
             button6.Text = ".  .  .";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
-            // pictureBox1
+            // pbCust
             // 
-            pictureBox1.BackColor = SystemColors.ActiveCaption;
-            pictureBox1.Location = new Point(11, 28);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(187, 201);
-            pictureBox1.TabIndex = 17;
-            pictureBox1.TabStop = false;
+            pbCust.BackColor = SystemColors.ActiveCaption;
+            pbCust.Location = new Point(11, 28);
+            pbCust.Margin = new Padding(3, 4, 3, 4);
+            pbCust.Name = "pbCust";
+            pbCust.Size = new Size(187, 201);
+            pbCust.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbCust.TabIndex = 17;
+            pbCust.TabStop = false;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.Location = new Point(210, 202);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(219, 28);
-            textBox5.TabIndex = 16;
+            txtEmail.Location = new Point(210, 202);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(219, 28);
+            txtEmail.TabIndex = 5;
             // 
             // label6
             // 
@@ -308,13 +316,14 @@
             label6.TabIndex = 15;
             label6.Text = "البريد الالكتروني";
             // 
-            // textBox4
+            // txtTel
             // 
-            textBox4.Location = new Point(210, 159);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(219, 28);
-            textBox4.TabIndex = 14;
+            txtTel.Location = new Point(210, 159);
+            txtTel.Margin = new Padding(3, 4, 3, 4);
+            txtTel.Name = "txtTel";
+            txtTel.ReadOnly = true;
+            txtTel.Size = new Size(219, 28);
+            txtTel.TabIndex = 4;
             // 
             // label5
             // 
@@ -325,13 +334,14 @@
             label5.TabIndex = 13;
             label5.Text = "رقم الهاتف";
             // 
-            // textBox3
+            // txtLastName
             // 
-            textBox3.Location = new Point(210, 117);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(219, 28);
-            textBox3.TabIndex = 12;
+            txtLastName.Location = new Point(210, 117);
+            txtLastName.Margin = new Padding(3, 4, 3, 4);
+            txtLastName.Name = "txtLastName";
+            txtLastName.ReadOnly = true;
+            txtLastName.Size = new Size(219, 28);
+            txtLastName.TabIndex = 3;
             // 
             // label4
             // 
@@ -342,13 +352,14 @@
             label4.TabIndex = 11;
             label4.Text = "الاسم العائلي";
             // 
-            // textBox2
+            // txtFirstName
             // 
-            textBox2.Location = new Point(210, 72);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(219, 28);
-            textBox2.TabIndex = 10;
+            txtFirstName.Location = new Point(210, 72);
+            txtFirstName.Margin = new Padding(3, 4, 3, 4);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.ReadOnly = true;
+            txtFirstName.Size = new Size(219, 28);
+            txtFirstName.TabIndex = 2;
             // 
             // label3
             // 
@@ -359,13 +370,15 @@
             label3.TabIndex = 9;
             label3.Text = "الاسم الشخصي";
             // 
-            // textBox1
+            // txtID
             // 
-            textBox1.Location = new Point(304, 29);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(126, 28);
-            textBox1.TabIndex = 8;
+            txtID.Location = new Point(304, 29);
+            txtID.Margin = new Padding(3, 4, 3, 4);
+            txtID.Name = "txtID";
+            txtID.ReadOnly = true;
+            txtID.Size = new Size(126, 28);
+            txtID.TabIndex = 0;
+            txtID.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
@@ -386,11 +399,11 @@
             Controls.Add(groupBox1);
             Controls.Add(txtToal);
             Controls.Add(label1);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSelectLine);
+            Controls.Add(btnNEw);
+            Controls.Add(btnSave);
+            Controls.Add(btnPrint);
+            Controls.Add(btnClose);
             Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
@@ -406,34 +419,28 @@
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbCust).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button btnClose;
+        private Button btnPrint;
+        private Button btnSave;
+        private Button btnNEw;
+        private Button btnSelectLine;
         private Label label1;
         private TextBox txtToal;
         private DataGridView dataGridView1;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
-        private PictureBox pictureBox1;
-        private TextBox textBox5;
         private Label label6;
-        private TextBox textBox4;
         private Label label5;
-        private TextBox textBox3;
         private Label label4;
-        private TextBox textBox2;
         private Label label3;
-        private TextBox textBox1;
         private Label label2;
         private TextBox textBox6;
         private Label label7;
@@ -441,8 +448,14 @@
         private Label label8;
         private TextBox textBox8;
         private Label label9;
-        private TextBox textBox9;
+        private TextBox txtOrderID;
         private Label label10;
         private Button button6;
+        public PictureBox pbCust;
+        public TextBox txtEmail;
+        public TextBox txtTel;
+        public TextBox txtLastName;
+        public TextBox txtFirstName;
+        public TextBox txtID;
     }
 }

@@ -80,6 +80,7 @@
             txtID.Name = "txtID";
             txtID.Size = new Size(198, 27);
             txtID.TabIndex = 4;
+            txtID.TextChanged += txtID_TextChanged;
             // 
             // txtPWD
             // 
