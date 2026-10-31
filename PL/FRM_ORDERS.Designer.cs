@@ -34,7 +34,7 @@
             btnNEw = new Button();
             btnSelectLine = new Button();
             label1 = new Label();
-            txtToal = new TextBox();
+            txtSumToals = new TextBox();
             dgvProducts = new DataGridView();
             groupBox1 = new GroupBox();
             btnSearch = new Button();
@@ -146,14 +146,14 @@
             label1.TabIndex = 5;
             label1.Text = "المجموع";
             // 
-            // txtToal
+            // txtSumToals
             // 
-            txtToal.Location = new Point(853, 523);
-            txtToal.Margin = new Padding(3, 4, 3, 4);
-            txtToal.Name = "txtToal";
-            txtToal.ReadOnly = true;
-            txtToal.Size = new Size(218, 28);
-            txtToal.TabIndex = 1;
+            txtSumToals.Location = new Point(853, 523);
+            txtSumToals.Margin = new Padding(3, 4, 3, 4);
+            txtSumToals.Name = "txtSumToals";
+            txtSumToals.ReadOnly = true;
+            txtSumToals.Size = new Size(218, 28);
+            txtSumToals.TabIndex = 1;
             // 
             // dgvProducts
             // 
@@ -230,6 +230,7 @@
             txtProductTotal.Size = new Size(131, 28);
             txtProductTotal.TabIndex = 21;
             txtProductTotal.TextAlign = HorizontalAlignment.Center;
+            txtProductTotal.KeyDown += txtProductTotal_KeyDown;
             // 
             // txtProductTax
             // 
@@ -240,6 +241,7 @@
             txtProductTax.Size = new Size(131, 28);
             txtProductTax.TabIndex = 20;
             txtProductTax.TextAlign = HorizontalAlignment.Center;
+            txtProductTax.KeyDown += txtProductTax_KeyDown;
             txtProductTax.KeyPress += txtProductTax_KeyPress;
             txtProductTax.KeyUp += txtProductTax_KeyUp;
             // 
@@ -613,7 +615,7 @@
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(txtToal);
+            Controls.Add(txtSumToals);
             Controls.Add(label1);
             Controls.Add(btnSelectLine);
             Controls.Add(btnNEw);
@@ -650,7 +652,7 @@
         private Button btnNEw;
         private Button btnSelectLine;
         private Label label1;
-        private TextBox txtToal;
+        private TextBox txtSumToals;
         private DataGridView dgvProducts;
         private GroupBox groupBox1;
         private GroupBox groupBox2;

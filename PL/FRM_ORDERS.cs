@@ -67,6 +67,17 @@ namespace Products_Management.PL
             this.dgvProducts.Columns[6].Width = 131;
         }
 
+        void ClearBoxes()
+        {
+            txtProductID.Clear();
+            txtProductName.Clear();
+            txtProductPrice.Clear();
+            txtProductQte.Clear();
+            txtProductPrice.Clear();
+            txtProductTax.Clear();
+            txtProductTotal.Clear();
+            btnSearch.Focus();
+        }
         public FRM_ORDERS()
         {
             InitializeComponent();
@@ -201,6 +212,45 @@ namespace Products_Management.PL
         private void txtProductTax_KeyUp(object sender, KeyEventArgs e)
         {
             CalculateTotal();
+        }
+
+        private void txtProductTotal_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtProductTax_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DataRow dr = dt.NewRow();
+                dr[0] = txtProductID.Text;
+                dr[1] = txtProductName.Text;
+                dr[2] = txtProductPrice.Text;
+                dr[3] = txtProductQte.Text;
+                dr[4] = txtProductPrice.Text;
+                dr[5] = txtProductTax.Text;
+                dr[6] = txtProductTotal.Text;
+
+                dt.Rows.Add(dr);
+
+                dgvProducts.DataSource = dt;
+
+                ClearBoxes();
+
+                btnSearch.Focus();
+
+                //هذه طريقة لينك في العمل
+                /*
+                 شرحها: فروم أنشأنا راو من داتا غريد وإين معناه يمثل كل الروات في الديجيفيبروداكت
+                واار حيث تكون الخانة السادسة من الورات لا تكون فارغة
+                سيلاكت فقم بتحديد الخانات السادسة وأجمعها كلها صام
+                 */
+                txtSumToals.Text =
+                    (from DataGridViewRow row in dgvProducts.Rows
+                     where row.Cells[6].FormattedValue.ToString() != string.Empty
+                     select Convert.ToDouble(row.Cells[6].FormattedValue)).Sum().ToString();
+            }
         }
     }
 }
