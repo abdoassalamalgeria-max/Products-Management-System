@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DgGetAllCust = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)DgGetAllCust).BeginInit();
+            DgvGetAllCust = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DgvGetAllCust).BeginInit();
             SuspendLayout();
             // 
-            // DgGetAllCust
+            // DgvGetAllCust
             // 
-            DgGetAllCust.AllowUserToAddRows = false;
-            DgGetAllCust.AllowUserToDeleteRows = false;
-            DgGetAllCust.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            DgGetAllCust.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DgGetAllCust.Dock = DockStyle.Fill;
-            DgGetAllCust.Location = new Point(0, 0);
-            DgGetAllCust.Name = "DgGetAllCust";
-            DgGetAllCust.ReadOnly = true;
-            DgGetAllCust.RightToLeft = RightToLeft.Yes;
-            DgGetAllCust.RowHeadersWidth = 51;
-            DgGetAllCust.RowTemplate.Height = 29;
-            DgGetAllCust.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DgGetAllCust.Size = new Size(800, 450);
-            DgGetAllCust.TabIndex = 0;
-            DgGetAllCust.Click += DgGetAllCustomers_Click;
+            DgvGetAllCust.AllowUserToAddRows = false;
+            DgvGetAllCust.AllowUserToDeleteRows = false;
+            DgvGetAllCust.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgvGetAllCust.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvGetAllCust.Dock = DockStyle.Fill;
+            DgvGetAllCust.Location = new Point(0, 0);
+            DgvGetAllCust.Name = "DgvGetAllCust";
+            DgvGetAllCust.ReadOnly = true;
+            DgvGetAllCust.RightToLeft = RightToLeft.Yes;
+            DgvGetAllCust.RowHeadersWidth = 51;
+            DgvGetAllCust.RowTemplate.Height = 29;
+            DgvGetAllCust.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvGetAllCust.Size = new Size(800, 450);
+            DgvGetAllCust.TabIndex = 0;
+            DgvGetAllCust.Click += DgGetAllCustomers_Click;
             // 
             // FRM_CUSTOMERS_LIST
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(DgGetAllCust);
+            Controls.Add(DgvGetAllCust);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FRM_CUSTOMERS_LIST";
@@ -64,12 +64,12 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "قائمة جميع العملاء";
             Load += FRM_CUSTOMERS_LIST_Load;
-            ((System.ComponentModel.ISupportInitialize)DgGetAllCust).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvGetAllCust).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        public DataGridView DgGetAllCust;
+        public DataGridView DgvGetAllCust;
     }
 }

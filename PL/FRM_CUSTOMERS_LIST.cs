@@ -21,9 +21,9 @@ namespace Products_Management.PL
 
         private void FRM_CUSTOMERS_LIST_Load(object sender, EventArgs e)
         {
-            this.DgGetAllCust.DataSource = cust.Get_ALL_Custmers();
-            this.DgGetAllCust.Columns[0].Visible = false; //لا نريد للأيدي أن يظهر
-            this.DgGetAllCust.Columns[5].Visible = false; //لانريد للصورة ان تظهر
+            this.DgvGetAllCust.DataSource = cust.Get_ALL_Custmers();
+            this.DgvGetAllCust.Columns[0].Visible = false; //لا نريد للأيدي أن يظهر
+            this.DgvGetAllCust.Columns[5].Visible = false; //لانريد للصورة ان تظهر
         }
 
         private void DgGetAllCustomers_Click(object sender, EventArgs e)
