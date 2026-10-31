@@ -10,10 +10,10 @@
 - تسجيل فواتير البيع Orders_Details
 
 ## التقنيات المستخدمة
-- C# and WindowsForms.
 - Visual Studio 2022.
-- Sql Server 2019 for Databases.
+- C# and WindowsForms.
 - SSMS.
+- Sql Server 2019.
 ## كيفية التشغيل
 1. حمّل المشروع.
 2. افتح ملف `.sln` في Visual Studio.
