@@ -1,6 +1,6 @@
 ﻿# نظام لإدارة المبيعات
 
-برنامج لإدارة المبيعات مبني بلغة C# باستخدام Windows Forms وقواعد بيانات SqlServer باستخدام بيئة .NET في Visual Studio 2022.
+برنامج لإدارة المبيعات مبني بلغة C# باستخدام Windows Forms وقواعد بيانات SqlServer في بيئة .NET في Visual Studio 2022.
 
 ## المميزات
 - إدارة المنتجات Products
