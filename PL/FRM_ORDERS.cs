@@ -362,8 +362,23 @@ namespace Products_Management.PL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //اضافة معلومات الفاتورة
             order.ADD_ORDER(Convert.ToInt32(txtOrderID.Text), Convert.ToDateTime(txtDateOrder.Text), Convert.ToInt32(txtID.Text), txtDescOrder.Text, txtSalesMan.Text); ;
+
+            //اضافة المنتجات المدخلة
             MessageBox.Show("تمت عملية الحفظ بنجاح", "رسالة حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            for(int i = 0; i < dgvProducts.Rows.Count-1; i++)
+            {
+                order.ADD_ORDER_DETAILS(
+                    Convert.ToInt32(dgvProducts.Rows[i].Cells[0].Value),
+                    Convert.ToInt32(txtOrderID.Text),
+                    Convert.ToInt32(dgvProducts.Rows[i].Cells[3].Value),
+                    dgvProducts.Rows[i].Cells[2].Value.ToString(),
+                    Convert.ToInt32(dgvProducts.Rows[i].Cells[5].Value),
+                    dgvProducts.Rows[i].Cells[4].Value.ToString(),
+                    dgvProducts.Rows[i].Cells[6].Value.ToString());
+            }
+
             btnSave.Enabled = false;
             btnNEw.Enabled = true;
 
