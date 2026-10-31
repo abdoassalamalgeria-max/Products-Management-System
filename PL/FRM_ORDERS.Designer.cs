@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnClose = new Button();
             btnPrint = new Button();
             btnSave = new Button();
             btnNEw = new Button();
-            btnSelectLine = new Button();
+            btnDeleteAll = new Button();
             label1 = new Label();
             txtSumToals = new TextBox();
             dgvProducts = new DataGridView();
@@ -56,14 +57,14 @@
             groupBox2 = new GroupBox();
             txtSalesMan = new TextBox();
             label7 = new Label();
-            txtDate = new TextBox();
+            txtDateOrder = new TextBox();
             label8 = new Label();
-            txtDesc = new TextBox();
+            txtDescOrder = new TextBox();
             label9 = new Label();
             txtOrderID = new TextBox();
             label10 = new Label();
             groupBox3 = new GroupBox();
-            button6 = new Button();
+            btnSelectClient = new Button();
             pbCust = new PictureBox();
             txtEmail = new TextBox();
             label6 = new Label();
@@ -75,16 +76,23 @@
             label3 = new Label();
             txtID = new TextBox();
             label2 = new Label();
+            btnDeleteCurrent = new Button();
+            btnEdit = new Button();
+            تعديلToolStripMenuItem = new ToolStripMenuItem();
+            حذفالسطرالمحددToolStripMenuItem = new ToolStripMenuItem();
+            حذفالكلToolStripMenuItem = new ToolStripMenuItem();
+            contextMenuStrip2 = new ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbCust).BeginInit();
+            contextMenuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(724, 572);
+            btnClose.Location = new Point(724, 578);
             btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(106, 30);
@@ -96,7 +104,7 @@
             // btnPrint
             // 
             btnPrint.Enabled = false;
-            btnPrint.Location = new Point(584, 572);
+            btnPrint.Location = new Point(584, 578);
             btnPrint.Margin = new Padding(3, 4, 3, 4);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(108, 30);
@@ -107,17 +115,18 @@
             // btnSave
             // 
             btnSave.Enabled = false;
-            btnSave.Location = new Point(435, 572);
+            btnSave.Location = new Point(435, 578);
             btnSave.Margin = new Padding(3, 4, 3, 4);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(112, 30);
             btnSave.TabIndex = 3;
             btnSave.Text = "حفظ البيعة";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnNEw
             // 
-            btnNEw.Location = new Point(273, 572);
+            btnNEw.Location = new Point(273, 578);
             btnNEw.Margin = new Padding(3, 4, 3, 4);
             btnNEw.Name = "btnNEw";
             btnNEw.Size = new Size(127, 30);
@@ -126,16 +135,16 @@
             btnNEw.UseVisualStyleBackColor = true;
             btnNEw.Click += button4_Click;
             // 
-            // btnSelectLine
+            // btnDeleteAll
             // 
-            btnSelectLine.Enabled = false;
-            btnSelectLine.Location = new Point(17, 525);
-            btnSelectLine.Margin = new Padding(3, 4, 3, 4);
-            btnSelectLine.Name = "btnSelectLine";
-            btnSelectLine.Size = new Size(241, 30);
-            btnSelectLine.TabIndex = 0;
-            btnSelectLine.Text = "جذف السطر المحدد";
-            btnSelectLine.UseVisualStyleBackColor = true;
+            btnDeleteAll.Location = new Point(314, 523);
+            btnDeleteAll.Margin = new Padding(3, 4, 3, 4);
+            btnDeleteAll.Name = "btnDeleteAll";
+            btnDeleteAll.Size = new Size(176, 30);
+            btnDeleteAll.TabIndex = 0;
+            btnDeleteAll.Text = "حذف الكل";
+            btnDeleteAll.UseVisualStyleBackColor = true;
+            btnDeleteAll.Click += btnDeleteAll_Click;
             // 
             // label1
             // 
@@ -169,6 +178,8 @@
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.Size = new Size(1033, 166);
             dgvProducts.TabIndex = 7;
+            dgvProducts.RowsRemoved += dgvProducts_RowsRemoved;
+            dgvProducts.DoubleClick += dgvProducts_DoubleClick;
             // 
             // groupBox1
             // 
@@ -383,13 +394,13 @@
             // 
             groupBox2.Controls.Add(txtSalesMan);
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(txtDate);
+            groupBox2.Controls.Add(txtDateOrder);
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(txtDesc);
+            groupBox2.Controls.Add(txtDescOrder);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(txtOrderID);
             groupBox2.Controls.Add(label10);
-            groupBox2.Location = new Point(17, 16);
+            groupBox2.Location = new Point(610, 13);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 4, 3, 4);
@@ -416,13 +427,13 @@
             label7.TabIndex = 21;
             label7.Text = "اسم البائع";
             // 
-            // txtDate
+            // txtDateOrder
             // 
-            txtDate.Location = new Point(38, 163);
-            txtDate.Margin = new Padding(3, 4, 3, 4);
-            txtDate.Name = "txtDate";
-            txtDate.Size = new Size(286, 28);
-            txtDate.TabIndex = 1;
+            txtDateOrder.Location = new Point(38, 163);
+            txtDateOrder.Margin = new Padding(3, 4, 3, 4);
+            txtDateOrder.Name = "txtDateOrder";
+            txtDateOrder.Size = new Size(286, 28);
+            txtDateOrder.TabIndex = 1;
             // 
             // label8
             // 
@@ -433,15 +444,15 @@
             label8.TabIndex = 19;
             label8.Text = "تاريخ البيع";
             // 
-            // txtDesc
+            // txtDescOrder
             // 
-            txtDesc.Location = new Point(38, 68);
-            txtDesc.Margin = new Padding(3, 4, 3, 4);
-            txtDesc.Multiline = true;
-            txtDesc.Name = "txtDesc";
-            txtDesc.ScrollBars = ScrollBars.Vertical;
-            txtDesc.Size = new Size(286, 89);
-            txtDesc.TabIndex = 0;
+            txtDescOrder.Location = new Point(38, 68);
+            txtDescOrder.Margin = new Padding(3, 4, 3, 4);
+            txtDescOrder.Multiline = true;
+            txtDescOrder.Name = "txtDescOrder";
+            txtDescOrder.ScrollBars = ScrollBars.Vertical;
+            txtDescOrder.Size = new Size(286, 89);
+            txtDescOrder.TabIndex = 0;
             // 
             // label9
             // 
@@ -472,7 +483,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(button6);
+            groupBox3.Controls.Add(btnSelectClient);
             groupBox3.Controls.Add(pbCust);
             groupBox3.Controls.Add(txtEmail);
             groupBox3.Controls.Add(label6);
@@ -484,7 +495,7 @@
             groupBox3.Controls.Add(label3);
             groupBox3.Controls.Add(txtID);
             groupBox3.Controls.Add(label2);
-            groupBox3.Location = new Point(485, 16);
+            groupBox3.Location = new Point(18, 13);
             groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
             groupBox3.Padding = new Padding(3, 4, 3, 4);
@@ -493,17 +504,17 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "بيانات العميل";
             // 
-            // button6
+            // btnSelectClient
             // 
-            button6.Location = new Point(210, 29);
-            button6.Margin = new Padding(3, 4, 3, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(87, 30);
-            button6.TabIndex = 1;
-            button6.Text = ".  .  .";
-            button6.TextAlign = ContentAlignment.TopCenter;
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            btnSelectClient.Location = new Point(210, 29);
+            btnSelectClient.Margin = new Padding(3, 4, 3, 4);
+            btnSelectClient.Name = "btnSelectClient";
+            btnSelectClient.Size = new Size(87, 30);
+            btnSelectClient.TabIndex = 1;
+            btnSelectClient.Text = ".  .  .";
+            btnSelectClient.TextAlign = ContentAlignment.TopCenter;
+            btnSelectClient.UseVisualStyleBackColor = true;
+            btnSelectClient.Click += button6_Click;
             // 
             // pbCust
             // 
@@ -607,17 +618,72 @@
             label2.TabIndex = 7;
             label2.Text = "معرف العميل";
             // 
+            // btnDeleteCurrent
+            // 
+            btnDeleteCurrent.Location = new Point(132, 523);
+            btnDeleteCurrent.Margin = new Padding(3, 4, 3, 4);
+            btnDeleteCurrent.Name = "btnDeleteCurrent";
+            btnDeleteCurrent.Size = new Size(176, 30);
+            btnDeleteCurrent.TabIndex = 10;
+            btnDeleteCurrent.Text = "حذف السطر الحالي";
+            btnDeleteCurrent.UseVisualStyleBackColor = true;
+            btnDeleteCurrent.Click += btnDeleteCurrent_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(18, 523);
+            btnEdit.Margin = new Padding(3, 4, 3, 4);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(108, 30);
+            btnEdit.TabIndex = 11;
+            btnEdit.Text = "تعديل";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // تعديلToolStripMenuItem
+            // 
+            تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
+            تعديلToolStripMenuItem.Size = new Size(202, 24);
+            تعديلToolStripMenuItem.Text = "تعديل";
+            تعديلToolStripMenuItem.Click += تعديلToolStripMenuItem_Click;
+            // 
+            // حذفالسطرالمحددToolStripMenuItem
+            // 
+            حذفالسطرالمحددToolStripMenuItem.Name = "حذفالسطرالمحددToolStripMenuItem";
+            حذفالسطرالمحددToolStripMenuItem.Size = new Size(202, 24);
+            حذفالسطرالمحددToolStripMenuItem.Text = "حذف السطر المحدد";
+            حذفالسطرالمحددToolStripMenuItem.Click += حذفالسطرالمحددToolStripMenuItem_Click;
+            // 
+            // حذفالكلToolStripMenuItem
+            // 
+            حذفالكلToolStripMenuItem.Name = "حذفالكلToolStripMenuItem";
+            حذفالكلToolStripMenuItem.Size = new Size(202, 24);
+            حذفالكلToolStripMenuItem.Text = "حذف الكل";
+            حذفالكلToolStripMenuItem.Click += حذفالكلToolStripMenuItem_Click_1;
+            // 
+            // contextMenuStrip2
+            // 
+            contextMenuStrip2.AllowDrop = true;
+            contextMenuStrip2.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { تعديلToolStripMenuItem, حذفالسطرالمحددToolStripMenuItem, حذفالكلToolStripMenuItem });
+            contextMenuStrip2.Name = "contextMenuStrip2";
+            contextMenuStrip2.RightToLeft = RightToLeft.Yes;
+            contextMenuStrip2.Size = new Size(203, 76);
+            // 
             // FRM_ORDERS
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1084, 620);
+            ContextMenuStrip = contextMenuStrip2;
+            Controls.Add(btnEdit);
+            Controls.Add(btnDeleteCurrent);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(txtSumToals);
             Controls.Add(label1);
-            Controls.Add(btnSelectLine);
+            Controls.Add(btnDeleteAll);
             Controls.Add(btnNEw);
             Controls.Add(btnSave);
             Controls.Add(btnPrint);
@@ -640,6 +706,7 @@
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbCust).EndInit();
+            contextMenuStrip2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -650,7 +717,7 @@
         private Button btnPrint;
         private Button btnSave;
         private Button btnNEw;
-        private Button btnSelectLine;
+        private Button btnDeleteAll;
         private Label label1;
         private TextBox txtSumToals;
         private DataGridView dgvProducts;
@@ -664,13 +731,13 @@
         private Label label2;
         private TextBox txtSalesMan;
         private Label label7;
-        private TextBox txtDate;
+        private TextBox txtDateOrder;
         private Label label8;
-        private TextBox txtDesc;
+        private TextBox txtDescOrder;
         private Label label9;
         private TextBox txtOrderID;
         private Label label10;
-        private Button button6;
+        private Button btnSelectClient;
         public PictureBox pbCust;
         public TextBox txtEmail;
         public TextBox txtTel;
@@ -693,5 +760,11 @@
         public TextBox txtProductName;
         public TextBox txtProductID;
         public Button btnSearch;
+        private Button btnDeleteCurrent;
+        private Button btnEdit;
+        private ToolStripMenuItem تعديلToolStripMenuItem;
+        private ToolStripMenuItem حذفالسطرالمحددToolStripMenuItem;
+        private ToolStripMenuItem حذفالكلToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip2;
     }
 }

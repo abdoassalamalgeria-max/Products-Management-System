@@ -37,6 +37,7 @@ namespace Products_Management.PL
                 FORM_MAIN.getMainForm.العملاءToolStripMenuItem.Enabled = true;
 
                 FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Enabled = true;
+                Program.SalesMan = dt.Rows[0]["FullName"].ToString();
                 this.Close();
             }
             else

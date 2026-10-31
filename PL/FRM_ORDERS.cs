@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Products_Management.PL
 {
@@ -90,10 +91,10 @@ namespace Products_Management.PL
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.txtOrderID.Text = order.GET_LAST_ORDER_ID().Rows[0][0].ToString();
-            btnNEw.Enabled = false;
-            btnSave.Enabled = true;
-            btnSelectLine.Enabled = true;
+                this.txtOrderID.Text = order.GET_LAST_ORDER_ID().Rows[0][0].ToString();
+                btnNEw.Enabled = false;
+                btnSave.Enabled = true;
+                btnDeleteAll.Enabled = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -125,8 +126,11 @@ namespace Products_Management.PL
 
         private void FRM_ORDERS_Load(object sender, EventArgs e)
         {
+            txtSalesMan.Text = Program.SalesMan;
+            txtDateOrder.Text = DateTime.Now.ToString("yyyy/MM/dd");
             CreateDatatable();
             ResizeDGV();
+            btnSelectClient.Focus();
 
         }
 
@@ -147,6 +151,8 @@ namespace Products_Management.PL
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            ClearBoxes();
+
             PL.FRM_PRODUCTS_LIST frm = new PL.FRM_PRODUCTS_LIST();
             frm.ShowDialog();
 
@@ -223,6 +229,15 @@ namespace Products_Management.PL
         {
             if (e.KeyCode == Keys.Enter)
             {
+                for (int i = 0; i < dgvProducts.Rows.Count - 1; i++)
+                {
+                    if (dgvProducts.Rows[i].Cells[0].Value.ToString() == txtProductID.Text)
+                    {
+                        MessageBox.Show("هذا المنتج موجود", "رسالة تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+
                 DataRow dr = dt.NewRow();
                 dr[0] = txtProductID.Text;
                 dr[1] = txtProductName.Text;
@@ -251,6 +266,107 @@ namespace Products_Management.PL
                      where row.Cells[6].FormattedValue.ToString() != string.Empty
                      select Convert.ToDouble(row.Cells[6].FormattedValue)).Sum().ToString();
             }
+        }
+
+        private void dgvProducts_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                txtProductID.Text = this.dgvProducts.CurrentRow.Cells[0].Value.ToString();
+                txtProductName.Text = this.dgvProducts.CurrentRow.Cells[1].Value.ToString();
+                txtProductPrice.Text = this.dgvProducts.CurrentRow.Cells[2].Value.ToString();
+                txtProductQte.Text = this.dgvProducts.CurrentRow.Cells[3].Value.ToString();
+                txtProductPrice.Text = this.dgvProducts.CurrentRow.Cells[4].Value.ToString();
+                txtProductTax.Text = this.dgvProducts.CurrentRow.Cells[5].Value.ToString();
+                txtProductTotal.Text = this.dgvProducts.CurrentRow.Cells[6].Value.ToString();
+
+                dgvProducts.Rows.RemoveAt(dgvProducts.CurrentRow.Index);
+                txtProductQte.Focus();
+            }
+            catch
+            {
+                return;
+            }
+
+        }
+
+        private void dgvProducts_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            txtSumToals.Text =
+                  (from DataGridViewRow row in dgvProducts.Rows
+                   where row.Cells[6].FormattedValue.ToString() != string.Empty
+                   select Convert.ToDouble(row.Cells[6].FormattedValue)).Sum().ToString();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            dgvProducts_DoubleClick(sender, e);
+        }
+
+        private void btnDeleteCurrent_Click(object sender, EventArgs e)
+        {
+            dgvProducts.Rows.RemoveAt(dgvProducts.CurrentRow.Index);
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dgvProducts.Refresh();
+            btnSearch.Focus();
+        }
+
+        private void تعديلToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dgvProducts_DoubleClick(sender, e);
+        }
+
+        private void حذفالكلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dgvProducts.Refresh();
+            btnSearch.Focus();
+        }
+
+        private void حذفالسطرالحاليToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvProducts.Rows.RemoveAt(dgvProducts.CurrentRow.Index);
+        }
+
+        private void تعديلToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvProducts_DoubleClick(sender, e);
+        }
+
+        private void حذفالسطرالمحددToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvProducts.Rows.RemoveAt(dgvProducts.CurrentRow.Index);
+        }
+
+        private void حذفالكلToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvProducts.Rows.Count - 1; i++)
+            {
+                dgvProducts.Rows.RemoveAt(dgvProducts.Rows[i].Index);
+            }
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            order.ADD_ORDER(Convert.ToInt32(txtOrderID.Text), Convert.ToDateTime(txtDateOrder.Text), Convert.ToInt32(txtID.Text), txtDescOrder.Text, txtSalesMan.Text); ;
+            MessageBox.Show("تمت عملية الحفظ بنجاح", "رسالة حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnSave.Enabled = false;
+            btnNEw.Enabled = true;
+
         }
     }
 }

@@ -5,6 +5,9 @@ namespace Products_Management
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// 
+        public static string SalesMan;
+
         [STAThread]
         static void Main()
         {
