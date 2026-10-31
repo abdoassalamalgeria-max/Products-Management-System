@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Products_Management.PL
 {
@@ -14,6 +15,23 @@ namespace Products_Management.PL
     {
         BL.CLS_ORDERS order = new BL.CLS_ORDERS();
         DataTable dt = new DataTable();
+
+        void CalculateAmount()
+        {
+            if (txtProductPrice.Text != string.Empty && txtProductPrice.Text != string.Empty)
+            {
+                double Amount = Convert.ToDouble(txtProductPrice.Text) * Convert.ToDouble(txtProductQte.Text);
+                txtProductMoney.Text = Convert.ToString(Amount);
+            }
+        }
+        void CalculateTotal()
+        {
+            if (txtProductMoney.Text != string.Empty && txtProductTax.Text != string.Empty)
+            {
+                double Total = Convert.ToDouble(txtProductMoney.Text) * Convert.ToDouble(txtProductTax.Text);
+                txtProductTotal.Text = Convert.ToString(Total);
+            }
+        }
 
         void CreateDatatable()
         {
@@ -124,6 +142,65 @@ namespace Products_Management.PL
             this.txtProductID.Text = frm.dgvProductList.CurrentRow.Cells[0].Value.ToString();
             this.txtProductName.Text = frm.dgvProductList.CurrentRow.Cells[1].Value.ToString();
             this.txtProductPrice.Text = frm.dgvProductList.CurrentRow.Cells[3].Value.ToString();
+            this.txtProductQte.Focus();
+        }
+
+        private void txtProductQte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char DecimalSeparator = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != DecimalSeparator)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductTax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProductPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProductPrice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtProductPrice.Text != string.Empty)
+            {
+                txtProductQte.Focus();
+                txtProductQte.SelectAll();
+            }
+        }
+
+        private void txtProductQte_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtProductQte.Text != string.Empty)
+            {
+                txtProductTax.Focus();
+                txtProductTax.SelectAll();
+            }
+        }
+
+        private void txtProductQte_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculateAmount();
+        }
+
+        private void txtProductTax_KeyUp(object sender, KeyEventArgs e)
+        {
+            CalculateTotal();
         }
     }
 }

@@ -226,56 +226,78 @@
             txtProductTotal.Location = new Point(12, 59);
             txtProductTotal.Margin = new Padding(3, 4, 3, 4);
             txtProductTotal.Name = "txtProductTotal";
+            txtProductTotal.ReadOnly = true;
             txtProductTotal.Size = new Size(131, 28);
             txtProductTotal.TabIndex = 21;
+            txtProductTotal.TextAlign = HorizontalAlignment.Center;
             // 
             // txtProductTax
             // 
             txtProductTax.Location = new Point(149, 59);
             txtProductTax.Margin = new Padding(3, 4, 3, 4);
+            txtProductTax.MaxLength = 8;
             txtProductTax.Name = "txtProductTax";
             txtProductTax.Size = new Size(131, 28);
             txtProductTax.TabIndex = 20;
+            txtProductTax.TextAlign = HorizontalAlignment.Center;
+            txtProductTax.KeyPress += txtProductTax_KeyPress;
+            txtProductTax.KeyUp += txtProductTax_KeyUp;
             // 
             // txtProductMoney
             // 
             txtProductMoney.Location = new Point(290, 59);
             txtProductMoney.Margin = new Padding(3, 4, 3, 4);
             txtProductMoney.Name = "txtProductMoney";
+            txtProductMoney.ReadOnly = true;
             txtProductMoney.Size = new Size(131, 28);
             txtProductMoney.TabIndex = 19;
+            txtProductMoney.TextAlign = HorizontalAlignment.Center;
             // 
             // txtProductQte
             // 
             txtProductQte.Location = new Point(427, 59);
             txtProductQte.Margin = new Padding(3, 4, 3, 4);
+            txtProductQte.MaxLength = 8;
             txtProductQte.Name = "txtProductQte";
             txtProductQte.Size = new Size(131, 28);
             txtProductQte.TabIndex = 18;
+            txtProductQte.TextAlign = HorizontalAlignment.Center;
+            txtProductQte.KeyDown += txtProductQte_KeyDown;
+            txtProductQte.KeyPress += txtProductQte_KeyPress;
+            txtProductQte.KeyUp += txtProductQte_KeyUp;
             // 
             // txtProductPrice
             // 
             txtProductPrice.Location = new Point(564, 59);
             txtProductPrice.Margin = new Padding(3, 4, 3, 4);
+            txtProductPrice.MaxLength = 8;
             txtProductPrice.Name = "txtProductPrice";
             txtProductPrice.Size = new Size(96, 28);
             txtProductPrice.TabIndex = 17;
+            txtProductPrice.TextAlign = HorizontalAlignment.Center;
+            txtProductPrice.TextChanged += txtProductPrice_TextChanged;
+            txtProductPrice.KeyDown += txtProductPrice_KeyDown;
+            txtProductPrice.KeyPress += txtProductPrice_KeyPress;
             // 
             // txtProductName
             // 
             txtProductName.Location = new Point(669, 59);
             txtProductName.Margin = new Padding(3, 4, 3, 4);
             txtProductName.Name = "txtProductName";
+            txtProductName.ReadOnly = true;
             txtProductName.Size = new Size(183, 28);
             txtProductName.TabIndex = 16;
+            txtProductName.TextAlign = HorizontalAlignment.Center;
             // 
             // txtProductID
             // 
             txtProductID.Location = new Point(858, 59);
             txtProductID.Margin = new Padding(3, 4, 3, 4);
             txtProductID.Name = "txtProductID";
+            txtProductID.ReadOnly = true;
             txtProductID.Size = new Size(111, 28);
             txtProductID.TabIndex = 15;
+            txtProductID.TextAlign = HorizontalAlignment.Center;
             // 
             // label17
             // 
@@ -653,13 +675,6 @@
         public TextBox txtLastName;
         public TextBox txtFirstName;
         public TextBox txtID;
-        private TextBox txtProductTotal;
-        private TextBox txtProductTax;
-        private TextBox txtProductMoney;
-        private TextBox txtProductQte;
-        private TextBox txtProductPrice;
-        private TextBox txtProductName;
-        private TextBox txtProductID;
         private Label label17;
         private Label label16;
         private Label label15;
@@ -668,6 +683,13 @@
         private Label label12;
         private Label label11;
         private Label label18;
-        private Button btnSearch;
+        public TextBox txtProductTotal;
+        public TextBox txtProductTax;
+        public TextBox txtProductMoney;
+        public TextBox txtProductQte;
+        public TextBox txtProductPrice;
+        public TextBox txtProductName;
+        public TextBox txtProductID;
+        public Button btnSearch;
     }
 }
