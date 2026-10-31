@@ -49,6 +49,7 @@
             DgvGetAllCust.Size = new Size(800, 450);
             DgvGetAllCust.TabIndex = 0;
             DgvGetAllCust.Click += DgGetAllCustomers_Click;
+            DgvGetAllCust.DoubleClick += DgvGetAllCust_DoubleClick;
             // 
             // FRM_CUSTOMERS_LIST
             // 

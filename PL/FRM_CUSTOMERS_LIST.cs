@@ -28,6 +28,11 @@ namespace Products_Management.PL
 
         private void DgGetAllCustomers_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void DgvGetAllCust_DoubleClick(object sender, EventArgs e)
+        {
             Close();
         }
     }

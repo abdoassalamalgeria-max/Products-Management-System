@@ -13,7 +13,6 @@ namespace Products_Management.PL
     public partial class FRM_ORDERS : Form
     {
         BL.CLS_ORDERS order = new BL.CLS_ORDERS();
-        PL.FRM_CUSTOMERS_LIST frm = new PL.FRM_CUSTOMERS_LIST();
         DataTable dt = new DataTable();
 
         void CreateDatatable()
@@ -38,6 +37,18 @@ namespace Products_Management.PL
 
         }
 
+        void ResizeDGV()
+        {
+            this.dgvProducts.RowHeadersWidth = 67;
+            this.dgvProducts.Columns[0].Width = 111;
+            this.dgvProducts.Columns[1].Width = 183;
+            this.dgvProducts.Columns[2].Width = 96;
+            this.dgvProducts.Columns[3].Width = 131;
+            this.dgvProducts.Columns[4].Width = 131;
+            this.dgvProducts.Columns[5].Width = 131;
+            this.dgvProducts.Columns[6].Width = 131;
+        }
+
         public FRM_ORDERS()
         {
             InitializeComponent();
@@ -58,6 +69,7 @@ namespace Products_Management.PL
 
         private void button6_Click(object sender, EventArgs e)
         {
+            PL.FRM_CUSTOMERS_LIST frm = new PL.FRM_CUSTOMERS_LIST();
             frm.ShowDialog();
             if (frm.DgvGetAllCust.CurrentRow.Cells[5].Value is DBNull)
             {
@@ -85,6 +97,8 @@ namespace Products_Management.PL
         private void FRM_ORDERS_Load(object sender, EventArgs e)
         {
             CreateDatatable();
+            ResizeDGV();
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -95,6 +109,21 @@ namespace Products_Management.PL
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            PL.FRM_PRODUCTS_LIST frm = new PL.FRM_PRODUCTS_LIST();
+            frm.ShowDialog();
+
+            this.txtProductID.Text = frm.dgvProductList.CurrentRow.Cells[0].Value.ToString();
+            this.txtProductName.Text = frm.dgvProductList.CurrentRow.Cells[1].Value.ToString();
+            this.txtProductPrice.Text = frm.dgvProductList.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

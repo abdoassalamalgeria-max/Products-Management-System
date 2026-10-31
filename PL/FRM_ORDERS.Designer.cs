@@ -37,6 +37,22 @@
             txtToal = new TextBox();
             dgvProducts = new DataGridView();
             groupBox1 = new GroupBox();
+            btnSearch = new Button();
+            label18 = new Label();
+            txtProductTotal = new TextBox();
+            txtProductTax = new TextBox();
+            txtProductMoney = new TextBox();
+            txtProductQte = new TextBox();
+            txtProductPrice = new TextBox();
+            txtProductName = new TextBox();
+            txtProductID = new TextBox();
+            label17 = new Label();
+            label16 = new Label();
+            label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
             groupBox2 = new GroupBox();
             txtSalesMan = new TextBox();
             label7 = new Label();
@@ -59,22 +75,6 @@
             label3 = new Label();
             txtID = new TextBox();
             label2 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            label18 = new Label();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -159,25 +159,28 @@
             // 
             dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(9, 93);
+            dgvProducts.ColumnHeadersVisible = false;
+            dgvProducts.Location = new Point(9, 89);
             dgvProducts.Margin = new Padding(3, 4, 3, 4);
             dgvProducts.Name = "dgvProducts";
+            dgvProducts.ReadOnly = true;
             dgvProducts.RowHeadersWidth = 51;
             dgvProducts.RowTemplate.Height = 29;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProducts.Size = new Size(1033, 162);
+            dgvProducts.Size = new Size(1033, 166);
             dgvProducts.TabIndex = 7;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnSearch);
             groupBox1.Controls.Add(label18);
-            groupBox1.Controls.Add(textBox7);
-            groupBox1.Controls.Add(textBox6);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtProductTotal);
+            groupBox1.Controls.Add(txtProductTax);
+            groupBox1.Controls.Add(txtProductMoney);
+            groupBox1.Controls.Add(txtProductQte);
+            groupBox1.Controls.Add(txtProductPrice);
+            groupBox1.Controls.Add(txtProductName);
+            groupBox1.Controls.Add(txtProductID);
             groupBox1.Controls.Add(label17);
             groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label15);
@@ -186,7 +189,6 @@
             groupBox1.Controls.Add(label12);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(dgvProducts);
-            groupBox1.Controls.Add(button1);
             groupBox1.Location = new Point(17, 253);
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
@@ -196,6 +198,162 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "المبيعات";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(975, 59);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(66, 29);
+            btnSearch.TabIndex = 23;
+            btnSearch.Text = "...";
+            btnSearch.TextAlign = ContentAlignment.TopCenter;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // label18
+            // 
+            label18.BackColor = SystemColors.ControlLight;
+            label18.BorderStyle = BorderStyle.FixedSingle;
+            label18.Location = new Point(975, 25);
+            label18.Name = "label18";
+            label18.Size = new Size(67, 30);
+            label18.TabIndex = 22;
+            label18.Text = "بحث";
+            label18.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtProductTotal
+            // 
+            txtProductTotal.Location = new Point(12, 59);
+            txtProductTotal.Margin = new Padding(3, 4, 3, 4);
+            txtProductTotal.Name = "txtProductTotal";
+            txtProductTotal.Size = new Size(131, 28);
+            txtProductTotal.TabIndex = 21;
+            // 
+            // txtProductTax
+            // 
+            txtProductTax.Location = new Point(149, 59);
+            txtProductTax.Margin = new Padding(3, 4, 3, 4);
+            txtProductTax.Name = "txtProductTax";
+            txtProductTax.Size = new Size(131, 28);
+            txtProductTax.TabIndex = 20;
+            // 
+            // txtProductMoney
+            // 
+            txtProductMoney.Location = new Point(290, 59);
+            txtProductMoney.Margin = new Padding(3, 4, 3, 4);
+            txtProductMoney.Name = "txtProductMoney";
+            txtProductMoney.Size = new Size(131, 28);
+            txtProductMoney.TabIndex = 19;
+            // 
+            // txtProductQte
+            // 
+            txtProductQte.Location = new Point(427, 59);
+            txtProductQte.Margin = new Padding(3, 4, 3, 4);
+            txtProductQte.Name = "txtProductQte";
+            txtProductQte.Size = new Size(131, 28);
+            txtProductQte.TabIndex = 18;
+            // 
+            // txtProductPrice
+            // 
+            txtProductPrice.Location = new Point(564, 59);
+            txtProductPrice.Margin = new Padding(3, 4, 3, 4);
+            txtProductPrice.Name = "txtProductPrice";
+            txtProductPrice.Size = new Size(96, 28);
+            txtProductPrice.TabIndex = 17;
+            // 
+            // txtProductName
+            // 
+            txtProductName.Location = new Point(669, 59);
+            txtProductName.Margin = new Padding(3, 4, 3, 4);
+            txtProductName.Name = "txtProductName";
+            txtProductName.Size = new Size(183, 28);
+            txtProductName.TabIndex = 16;
+            // 
+            // txtProductID
+            // 
+            txtProductID.Location = new Point(858, 59);
+            txtProductID.Margin = new Padding(3, 4, 3, 4);
+            txtProductID.Name = "txtProductID";
+            txtProductID.Size = new Size(111, 28);
+            txtProductID.TabIndex = 15;
+            // 
+            // label17
+            // 
+            label17.BackColor = SystemColors.ControlLight;
+            label17.BorderStyle = BorderStyle.FixedSingle;
+            label17.Location = new Point(12, 25);
+            label17.Name = "label17";
+            label17.Size = new Size(131, 30);
+            label17.TabIndex = 14;
+            label17.Text = "المبلغ الاجمالي";
+            label17.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            label16.BackColor = SystemColors.ControlLight;
+            label16.BorderStyle = BorderStyle.FixedSingle;
+            label16.Location = new Point(149, 25);
+            label16.Name = "label16";
+            label16.Size = new Size(131, 30);
+            label16.TabIndex = 13;
+            label16.Text = "الخصم %";
+            label16.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            label15.BackColor = SystemColors.ControlLight;
+            label15.BorderStyle = BorderStyle.FixedSingle;
+            label15.Location = new Point(290, 25);
+            label15.Name = "label15";
+            label15.Size = new Size(131, 30);
+            label15.TabIndex = 12;
+            label15.Text = "المبلغ";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
+            label15.Click += label15_Click;
+            // 
+            // label14
+            // 
+            label14.BackColor = SystemColors.ControlLight;
+            label14.BorderStyle = BorderStyle.FixedSingle;
+            label14.Location = new Point(427, 25);
+            label14.Name = "label14";
+            label14.Size = new Size(131, 30);
+            label14.TabIndex = 11;
+            label14.Text = "الكمية";
+            label14.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            label13.BackColor = SystemColors.ControlLight;
+            label13.BorderStyle = BorderStyle.FixedSingle;
+            label13.Location = new Point(564, 25);
+            label13.Name = "label13";
+            label13.Size = new Size(96, 30);
+            label13.TabIndex = 10;
+            label13.Text = "الثمن";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.BackColor = SystemColors.ControlLight;
+            label12.BorderStyle = BorderStyle.FixedSingle;
+            label12.Location = new Point(669, 25);
+            label12.Name = "label12";
+            label12.Size = new Size(183, 30);
+            label12.TabIndex = 9;
+            label12.Text = "اسم المنتج";
+            label12.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            label11.BackColor = SystemColors.ControlLight;
+            label11.BorderStyle = BorderStyle.FixedSingle;
+            label11.Location = new Point(858, 25);
+            label11.Name = "label11";
+            label11.Size = new Size(111, 30);
+            label11.TabIndex = 8;
+            label11.Text = "معرف المنتج";
+            label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
@@ -425,164 +583,6 @@
             label2.TabIndex = 7;
             label2.Text = "معرف العميل";
             // 
-            // label11
-            // 
-            label11.BackColor = SystemColors.ControlLight;
-            label11.BorderStyle = BorderStyle.FixedSingle;
-            label11.Location = new Point(858, 25);
-            label11.Name = "label11";
-            label11.Size = new Size(111, 30);
-            label11.TabIndex = 8;
-            label11.Text = "معرف المنتج";
-            label11.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            label12.BackColor = SystemColors.ControlLight;
-            label12.BorderStyle = BorderStyle.FixedSingle;
-            label12.Location = new Point(669, 25);
-            label12.Name = "label12";
-            label12.Size = new Size(183, 30);
-            label12.TabIndex = 9;
-            label12.Text = "اسم المنتج";
-            label12.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            label13.BackColor = SystemColors.ControlLight;
-            label13.BorderStyle = BorderStyle.FixedSingle;
-            label13.Location = new Point(564, 25);
-            label13.Name = "label13";
-            label13.Size = new Size(96, 30);
-            label13.TabIndex = 10;
-            label13.Text = "الثمن";
-            label13.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            label14.BackColor = SystemColors.ControlLight;
-            label14.BorderStyle = BorderStyle.FixedSingle;
-            label14.Location = new Point(427, 25);
-            label14.Name = "label14";
-            label14.Size = new Size(131, 30);
-            label14.TabIndex = 11;
-            label14.Text = "الكمية";
-            label14.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            label15.BackColor = SystemColors.ControlLight;
-            label15.BorderStyle = BorderStyle.FixedSingle;
-            label15.Location = new Point(290, 25);
-            label15.Name = "label15";
-            label15.Size = new Size(131, 30);
-            label15.TabIndex = 12;
-            label15.Text = "المبلغ";
-            label15.TextAlign = ContentAlignment.MiddleCenter;
-            label15.Click += label15_Click;
-            // 
-            // label16
-            // 
-            label16.BackColor = SystemColors.ControlLight;
-            label16.BorderStyle = BorderStyle.FixedSingle;
-            label16.Location = new Point(149, 25);
-            label16.Name = "label16";
-            label16.Size = new Size(131, 30);
-            label16.TabIndex = 13;
-            label16.Text = "الخصم %";
-            label16.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            label17.BackColor = SystemColors.ControlLight;
-            label17.BorderStyle = BorderStyle.FixedSingle;
-            label17.Location = new Point(12, 25);
-            label17.Name = "label17";
-            label17.Size = new Size(131, 30);
-            label17.TabIndex = 14;
-            label17.Text = "المبلغ الاجمالي";
-            label17.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(858, 59);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(111, 28);
-            textBox1.TabIndex = 15;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(669, 59);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(183, 28);
-            textBox2.TabIndex = 16;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(564, 59);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(96, 28);
-            textBox3.TabIndex = 17;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(427, 59);
-            textBox4.Margin = new Padding(3, 4, 3, 4);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(131, 28);
-            textBox4.TabIndex = 18;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(290, 59);
-            textBox5.Margin = new Padding(3, 4, 3, 4);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(131, 28);
-            textBox5.TabIndex = 19;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(149, 59);
-            textBox6.Margin = new Padding(3, 4, 3, 4);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(131, 28);
-            textBox6.TabIndex = 20;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(12, 59);
-            textBox7.Margin = new Padding(3, 4, 3, 4);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(131, 28);
-            textBox7.TabIndex = 21;
-            // 
-            // label18
-            // 
-            label18.BackColor = SystemColors.ControlLight;
-            label18.BorderStyle = BorderStyle.FixedSingle;
-            label18.Location = new Point(975, 25);
-            label18.Name = "label18";
-            label18.Size = new Size(67, 30);
-            label18.TabIndex = 22;
-            label18.Text = "اختيار";
-            label18.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ButtonFace;
-            button1.Enabled = false;
-            button1.Location = new Point(975, 57);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(67, 30);
-            button1.TabIndex = 10;
-            button1.Text = ". . .";
-            button1.TextAlign = ContentAlignment.TopCenter;
-            button1.UseVisualStyleBackColor = false;
-            // 
             // FRM_ORDERS
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -653,13 +653,13 @@
         public TextBox txtLastName;
         public TextBox txtFirstName;
         public TextBox txtID;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtProductTotal;
+        private TextBox txtProductTax;
+        private TextBox txtProductMoney;
+        private TextBox txtProductQte;
+        private TextBox txtProductPrice;
+        private TextBox txtProductName;
+        private TextBox txtProductID;
         private Label label17;
         private Label label16;
         private Label label15;
@@ -668,6 +668,6 @@
         private Label label12;
         private Label label11;
         private Label label18;
-        private Button button1;
+        private Button btnSearch;
     }
 }
