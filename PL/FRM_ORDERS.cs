@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using Microsoft.Reporting.WinForms;
 
 namespace Products_Management.PL
 {
@@ -102,6 +103,7 @@ namespace Products_Management.PL
 
             btnSave.Enabled = false;
             btnNEw.Enabled = true;
+            btnPrint.Enabled = true;
             btnSelectClient.Focus();
 
         }
@@ -117,10 +119,10 @@ namespace Products_Management.PL
 
         private void button4_Click(object sender, EventArgs e)
         {
-                this.txtOrderID.Text = order.GET_LAST_ORDER_ID().Rows[0][0].ToString();
-                btnNEw.Enabled = false;
-                btnSave.Enabled = true;
-                btnDeleteAll.Enabled = true;
+            this.txtOrderID.Text = order.GET_LAST_ORDER_ID().Rows[0][0].ToString();
+            btnNEw.Enabled = false;
+            btnSave.Enabled = true;
+            btnDeleteAll.Enabled = true;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -396,7 +398,7 @@ namespace Products_Management.PL
         private void btnSave_Click(object sender, EventArgs e)
         {
             //التحقق من القيم المدخلة 
-            if(txtID.Text == string.Empty)
+            if (txtID.Text == string.Empty)
             {
                 MessageBox.Show("قم بتحديد معرف العميل أولا");
                 return;
@@ -423,7 +425,7 @@ namespace Products_Management.PL
 
             //اضافة المنتجات المدخلة
             MessageBox.Show("تمت عملية الحفظ بنجاح", "رسالة حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            for(int i = 0; i < dgvProducts.Rows.Count-1; i++)
+            for (int i = 0; i < dgvProducts.Rows.Count - 1; i++)
             {
                 order.ADD_ORDER_DETAILS(
                     Convert.ToInt32(dgvProducts.Rows[i].Cells[0].Value),
@@ -436,6 +438,25 @@ namespace Products_Management.PL
             }
 
             ClearAllData();
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            //get the last order for number of facture
+            this.Cursor = Cursors.WaitCursor;
+            int order_id = Convert.ToInt32(order.GET_LAST_ORDER_ID_for_print().Rows[0][0]);
+
+            RPT.FRM_RPT frm = new RPT.FRM_RPT();
+
+            /* RPT.RPT_ORDERS report = new RPT.RPT_ORDERS();  //تم استنساخ كائن من ملف تقرير كريستال ريبورت
+
+            report.SetDataSource(order.Get_Order_Details(order_id)) //وضع مصدر معلومات التقرير من الدالة غاتاوردر;
+            frm.CrystalReportViewer1.Reportsource = report; //وضع كائن الريبورت المستنسخ داخل الفورم المستنسخ*/
+            frm.ShowDialog();
+            this.Cursor = Cursors.Default;
+
+
 
         }
     }

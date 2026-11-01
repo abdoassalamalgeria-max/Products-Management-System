@@ -111,6 +111,7 @@
             btnPrint.TabIndex = 4;
             btnPrint.Text = "طباعة الفاتورة";
             btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Click += btnPrint_Click;
             // 
             // btnSave
             // 

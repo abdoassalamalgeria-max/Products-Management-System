@@ -22,6 +22,36 @@ namespace Products_Management.BL
             return dt;
         }
 
+        public DataTable GET_LAST_ORDER_ID_for_print()
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+
+            DataTable dt = dal.SelectData("GET_LAST_ORDER_ID_for_print", null);
+
+            dal.Close();
+
+            return dt;
+        }
+
+
+
+        public DataTable Get_Order_Details(int ID_PRODUCT)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@ID_Order", SqlDbType.Int);
+            param[0].Value = ID_PRODUCT;
+
+            DataTable dt = dal.SelectData("Get_Order_Details", param);
+
+            dal.Close();
+
+            return dt;
+        }
+
+
         //functin that ADD_ORDER from data base
         public void ADD_ORDER(int ID_ORDER, DateTime DATE_ORDER,
                                 int ID_CUSTOMER, string DESCRIPTION_ORDER, string SALESMAN)
