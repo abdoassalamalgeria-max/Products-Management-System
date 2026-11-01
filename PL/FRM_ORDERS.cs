@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 
 namespace Products_Management.PL
 {
@@ -78,6 +79,31 @@ namespace Products_Management.PL
             txtProductTax.Clear();
             txtProductTotal.Clear();
             btnSearch.Focus();
+        }
+
+        void ClearAllData()
+        {
+            ClearBoxes();
+
+            txtID.Clear();
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtTel.Clear();
+            txtEmail.Clear();
+
+            txtOrderID.Clear();
+            txtDescOrder.Clear();
+            txtDateOrder.ResetText();
+            txtSalesMan.Clear();
+
+            pbCust.Image = null;
+            dgvProducts.DataSource = null;
+            dt.Clear();
+
+            btnSave.Enabled = false;
+            btnNEw.Enabled = true;
+            btnSelectClient.Focus();
+
         }
         public FRM_ORDERS()
         {
@@ -213,6 +239,7 @@ namespace Products_Management.PL
         private void txtProductQte_KeyUp(object sender, KeyEventArgs e)
         {
             CalculateAmount();
+
         }
 
         private void txtProductTax_KeyUp(object sender, KeyEventArgs e)
@@ -236,6 +263,12 @@ namespace Products_Management.PL
                         MessageBox.Show("هذا المنتج موجود", "رسالة تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
+                }
+
+                if (order.VerifyQte(Convert.ToInt32(txtProductID.Text), Convert.ToInt32(txtProductQte.Text)).Rows.Count < 1)
+                {
+                    MessageBox.Show("كمية المنتج المدخلة غير متوفرة", "رسالة خطأ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
 
                 DataRow dr = dt.NewRow();
@@ -362,6 +395,29 @@ namespace Products_Management.PL
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //التحقق من القيم المدخلة 
+            if(txtID.Text == string.Empty)
+            {
+                MessageBox.Show("قم بتحديد معرف العميل أولا");
+                return;
+            }
+            if (txtOrderID.Text == string.Empty)
+            {
+                MessageBox.Show("قم بتحديد  رقم الفاتورة أولا");
+                return;
+
+            }
+            if (txtDescOrder.Text == string.Empty)
+            {
+                MessageBox.Show("قم بادخال وصف الفاتورة");
+                return;
+            }
+            if (dt.Rows.Count < 1)
+            {
+                MessageBox.Show("قم بتحديد منتج من المبيعات");
+                return;
+            }
+
             //اضافة معلومات الفاتورة
             order.ADD_ORDER(Convert.ToInt32(txtOrderID.Text), Convert.ToDateTime(txtDateOrder.Text), Convert.ToInt32(txtID.Text), txtDescOrder.Text, txtSalesMan.Text); ;
 
@@ -379,8 +435,7 @@ namespace Products_Management.PL
                     dgvProducts.Rows[i].Cells[6].Value.ToString());
             }
 
-            btnSave.Enabled = false;
-            btnNEw.Enabled = true;
+            ClearAllData();
 
         }
     }

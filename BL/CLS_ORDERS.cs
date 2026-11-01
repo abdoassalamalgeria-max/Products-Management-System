@@ -73,6 +73,25 @@ namespace Products_Management.BL
             dal.Close();
         }
 
+        public DataTable VerifyQte(int ID_PRODUCT, int QTE_IN_STOCK)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+
+            SqlParameter[] param = new SqlParameter[2];
+
+            param[0] = new SqlParameter("@ID_Product", SqlDbType.Int);
+            param[0].Value = ID_PRODUCT;
+            param[1] = new SqlParameter("@Qte_Entered", SqlDbType.Int);
+            param[1].Value = QTE_IN_STOCK;
+
+            DataTable dt = dal.SelectData("VerifyQte", param);
+
+            dal.Close();
+
+            return dt;
+        }
+
+
 
 
     }
