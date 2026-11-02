@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,9 +54,18 @@ namespace Products_Management.PL
                     return;
                 }
 
-                BL.CLS_Login user = new BL.CLS_Login();
-                user.ADD_USER(txtID.Text, txtPWD.Text, cmbType.Text, txtFullName.Text);
-                MessageBox.Show("تم إضافة المستخدم بنجاح");
+                if(btnSave.Text == "حفظ المستخدم")
+                {
+                    BL.CLS_Login user = new BL.CLS_Login();
+                    user.ADD_USER(txtID.Text, txtPWD.Text, cmbType.Text, txtFullName.Text);
+                    MessageBox.Show("تم إضافة المستخدم بنجاح");
+                }
+                else if (btnSave.Text == "تعديل المستخدم")
+                {
+                    BL.CLS_Login user = new BL.CLS_Login();
+                    user.EDIT_USER(txtID.Text, txtPWD.Text, cmbType.Text, txtFullName.Text);
+                    MessageBox.Show("تم تعديل المستخدم بنجاح");
+                }
 
                 txtID.Clear();
                 txtFullName.Clear();
@@ -63,7 +73,6 @@ namespace Products_Management.PL
                 txtPWDConfirm.Clear();
                 cmbType.ResetText();
                 txtID.Focus();
-
             }
             catch
             {

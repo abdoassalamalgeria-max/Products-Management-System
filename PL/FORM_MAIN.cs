@@ -118,7 +118,8 @@ namespace Products_Management.PL
 
         private void ادارةالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PL.FORM_USERS_LIST frm = new PL.FORM_USERS_LIST();
+            frm.ShowDialog();
         }
     }
 }

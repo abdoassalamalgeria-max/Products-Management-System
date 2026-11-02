@@ -39,7 +39,7 @@
             txtFullName = new TextBox();
             label1 = new Label();
             txtID = new TextBox();
-            button1 = new Button();
+            btnSave = new Button();
             button2 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -162,15 +162,15 @@
             txtID.Size = new Size(245, 27);
             txtID.TabIndex = 0;
             // 
-            // button1
+            // btnSave
             // 
-            button1.Location = new Point(93, 333);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "حفظ المستخدم";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnSave.Location = new Point(93, 333);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(139, 29);
+            btnSave.TabIndex = 0;
+            btnSave.Text = "حفظ المستخدم";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += button1_Click;
             // 
             // button2
             // 
@@ -188,7 +188,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(467, 396);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSave);
             Controls.Add(groupBox1);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -205,17 +205,17 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox txtID;
         private Label label3;
-        private TextBox txtPWD;
         private Label label2;
-        private TextBox txtFullName;
         private Label label1;
-        private ComboBox cmbType;
         private Label label5;
         private Label label4;
-        private TextBox txtPWDConfirm;
-        private Button button1;
         private Button button2;
+        public Button btnSave;
+        public TextBox txtID;
+        public TextBox txtPWD;
+        public TextBox txtFullName;
+        public ComboBox cmbType;
+        public TextBox txtPWDConfirm;
     }
 }
