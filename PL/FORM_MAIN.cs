@@ -52,6 +52,7 @@ namespace Products_Management.PL
             المنتوجاتToolStripMenuItem.Enabled = false;
             العملاءToolStripMenuItem.Enabled = false;
             المستخدمينToolStripMenuItem.Enabled = false;
+            تسجيلالخروجToolStripMenuItem.Enabled = false;
         }
 
         private void المستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,7 +64,8 @@ namespace Products_Management.PL
         {
             FORM_LOGIN frmLogin = new FORM_LOGIN(); //أي كلاص لكي تستدعيه يجب أن تنسخ منه كائن أولا
             frmLogin.ShowDialog(); //لكي يظهر كعلبة الحوار فوق الفورم الرئيسي
-
+            تسجيلالخروجToolStripMenuItem.Enabled = true;
+            تسجيلالدخولToolStripMenuItem.Enabled = false;
         }
 
         private void تسجيلالخروجToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +75,8 @@ namespace Products_Management.PL
             المنتوجاتToolStripMenuItem.Enabled = false;
             العملاءToolStripMenuItem.Enabled = false;
             المستخدمينToolStripMenuItem.Enabled = false;
+            تسجيلالخروجToolStripMenuItem.Enabled = false;
+            تسجيلالدخولToolStripMenuItem.Enabled = true;
 
         }
 
@@ -120,6 +124,17 @@ namespace Products_Management.PL
         {
             PL.FORM_USERS_LIST frm = new PL.FORM_USERS_LIST();
             frm.ShowDialog();
+        }
+
+        private void حفظنسخةاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_BACKUP frm = new PL.FRM_BACKUP();
+            frm.ShowDialog();
+        }
+
+        private void FORM_MAIN_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

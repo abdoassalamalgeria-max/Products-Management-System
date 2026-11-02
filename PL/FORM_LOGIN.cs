@@ -58,6 +58,7 @@ namespace Products_Management.PL
                     FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Visible = false;
 
                     Program.SalesMan = dt.Rows[0]["FullName"].ToString();
+                    btnEnter.Enabled = false;
                     this.Close();
                 }
 
