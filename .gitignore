@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /App.config
+/Products_DB_2026_11_02_18_22_35.bak
