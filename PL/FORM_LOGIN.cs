@@ -29,16 +29,38 @@ namespace Products_Management.PL
             DataTable dt = log.LOGIN(txtID.Text, txtPWD.Text);
             if (dt.Rows.Count > 0)
             {
-                FORM_MAIN.getMainForm.حفظنسخةاحتياطيةToolStripMenuItem.Enabled = true;
-                FORM_MAIN.getMainForm.استعادةنسخةاحتياطيةToolStripMenuItem.Enabled = true;
+                //التحقق من نوع المستخدم هل هو مدير ام مستخدم عادي واعطائه الصلاحيات التي يستحقها
+                if (dt.Rows[0][2].ToString() == "Administrator")
+                {
+                    FORM_MAIN.getMainForm.حفظنسخةاحتياطيةToolStripMenuItem.Enabled = true;
+                    FORM_MAIN.getMainForm.استعادةنسخةاحتياطيةToolStripMenuItem.Enabled = true;
 
-                FORM_MAIN.getMainForm.المنتوجاتToolStripMenuItem.Enabled = true;
+                    FORM_MAIN.getMainForm.المنتوجاتToolStripMenuItem.Enabled = true;
 
-                FORM_MAIN.getMainForm.العملاءToolStripMenuItem.Enabled = true;
+                    FORM_MAIN.getMainForm.العملاءToolStripMenuItem.Enabled = true;
 
-                FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Enabled = true;
-                Program.SalesMan = dt.Rows[0]["FullName"].ToString();
-                this.Close();
+                    FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Enabled = true;
+                    FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Visible = true;
+
+                    Program.SalesMan = dt.Rows[0]["FullName"].ToString();
+                    this.Close();
+
+                }else if (dt.Rows[0][2].ToString() == "User")
+                {
+                    FORM_MAIN.getMainForm.حفظنسخةاحتياطيةToolStripMenuItem.Enabled = true;
+                    FORM_MAIN.getMainForm.استعادةنسخةاحتياطيةToolStripMenuItem.Enabled = true;
+
+                    FORM_MAIN.getMainForm.المنتوجاتToolStripMenuItem.Enabled = true;
+
+                    FORM_MAIN.getMainForm.العملاءToolStripMenuItem.Enabled = true;
+
+                    FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Enabled = false;
+                    FORM_MAIN.getMainForm.المستخدمينToolStripMenuItem.Visible = false;
+
+                    Program.SalesMan = dt.Rows[0]["FullName"].ToString();
+                    this.Close();
+                }
+
             }
             else
             {

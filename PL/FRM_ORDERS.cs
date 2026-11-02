@@ -444,7 +444,6 @@ namespace Products_Management.PL
         private void btnPrint_Click(object sender, EventArgs e)
         {
             //get the last order for number of facture
-            this.Cursor = Cursors.WaitCursor;
             int order_id = Convert.ToInt32(order.GET_LAST_ORDER_ID_for_print().Rows[0][0]);
 
             RPT.FRM_RPT frm = new RPT.FRM_RPT();
@@ -454,10 +453,6 @@ namespace Products_Management.PL
             report.SetDataSource(order.Get_Order_Details(order_id)) //وضع مصدر معلومات التقرير من الدالة غاتاوردر;
             frm.CrystalReportViewer1.Reportsource = report; //وضع كائن الريبورت المستنسخ داخل الفورم المستنسخ*/
             frm.ShowDialog();
-            this.Cursor = Cursors.Default;
-
-
-
         }
     }
 }

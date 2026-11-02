@@ -26,6 +26,28 @@ namespace Products_Management.BL
 
             return dt;  
         }
+
+        public void ADD_USER(string ID, string PWD, string UserType, string FullName)
+        {
+            DAL.DataAccessLayer dal = new DAL.DataAccessLayer();
+            dal.Open();
+
+            SqlParameter[] param = new SqlParameter[4];
+            param[0] = new SqlParameter("@id", SqlDbType.VarChar, 50);
+            param[0].Value = ID;
+            param[1] = new SqlParameter("@pwd", SqlDbType.VarChar, 50);
+            param[1].Value = PWD;
+            param[2] = new SqlParameter("@userType", SqlDbType.VarChar, 50);
+            param[2].Value = UserType;
+            param[3] = new SqlParameter("@fullName", SqlDbType.VarChar, 50);
+            param[3].Value = FullName;
+
+
+            dal.ExecuteCommand("ADD_USER", param);
+
+            dal.Close();
+        }
+
     }
 }
 

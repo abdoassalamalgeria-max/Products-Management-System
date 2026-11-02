@@ -106,8 +106,19 @@ namespace Products_Management.PL
 
         private void إدارةالمبيعاتToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            PL.FRM_ORDERS frm = new PL.FRM_ORDERS();    
-            frm.ShowDialog();   
+            PL.FRM_ORDERS frm = new PL.FRM_ORDERS();
+            frm.ShowDialog();
+        }
+
+        private void اضافةمستخدمجديدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_ADD_USER frm = new PL.FRM_ADD_USER();
+            frm.ShowDialog();
+        }
+
+        private void ادارةالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
