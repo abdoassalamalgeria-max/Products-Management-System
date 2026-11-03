@@ -24,13 +24,22 @@ namespace Products_Management.PL
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string fileName = txtFileName.Text + "\\Products_DB" + DateTime.Now.ToString("_yyyy_MM_dd_HH_mm_ss").Replace("\\", "_");
-            string strQuery = "Backup DataBase Products_DB to disk = '" + fileName + ".bak'";
-            cmd = new SqlCommand(strQuery, conn);
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            MessageBox.Show("تم انشاء النسخة الاحتياطية بنجاح");
+            try
+            {
+                string fileName = txtFileName.Text + "\\Products_DB" + DateTime.Now.ToString("_yyyy_MM_dd_HH_mm_ss").Replace("\\", "_");
+                string strQuery = "Backup DataBase Products_DB to disk = '" + fileName + ".bak'";
+                cmd = new SqlCommand(strQuery, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("تم انشاء النسخة الاحتياطية بنجاح");
+
+            }
+            catch
+            {
+                return;
+            }
+
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)

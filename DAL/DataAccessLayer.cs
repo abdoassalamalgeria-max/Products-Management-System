@@ -15,7 +15,16 @@ namespace Products_Management.DAL
         //this constructor initialize the connection object
         public DataAccessLayer()
         {
-            sqlConnection = new SqlConnection(@"Server=DESKTOP-1QJGK5R\SQLEXPRESS; DataBase=Products_DB; Integrated Security=true");
+            string mode = Properties.Settings.Default.Mode;
+            if(mode == "Windows")
+            {
+                sqlConnection = new SqlConnection(@"Server= " + Properties.Settings.Default.Server + "; DataBase=" + Properties.Settings.Default.Database + "; Integrated Security=true");
+            }
+            else if(mode == "SQL")
+            {
+                sqlConnection = new SqlConnection(@"Server= " + Properties.Settings.Default.Server + "; DataBase=" + Properties.Settings.Default.Database + "; Integrated Security=false; user ID= " + Properties.Settings.Default.ID + "; password= " + Properties.Settings.Default.Password + "");
+            }
+
         }
         
         //method to open the connection

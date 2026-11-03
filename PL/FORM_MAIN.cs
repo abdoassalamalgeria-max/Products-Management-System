@@ -136,5 +136,17 @@ namespace Products_Management.PL
         {
 
         }
+
+        private void استعادةنسخةاحتياطيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_RESTORE frm = new PL.FRM_RESTORE();
+            frm.ShowDialog();
+        }
+
+        private void إعداداتالاتصالبالسيرفرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_CONFIG frm = new PL.FRM_CONFIG();
+            frm.ShowDialog();
+        }
     }
 }

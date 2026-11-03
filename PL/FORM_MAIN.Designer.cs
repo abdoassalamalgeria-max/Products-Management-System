@@ -48,6 +48,7 @@
             المستخدمينToolStripMenuItem = new ToolStripMenuItem();
             اضافةمستخدمجديدToolStripMenuItem = new ToolStripMenuItem();
             ادارةالمستخدمينToolStripMenuItem = new ToolStripMenuItem();
+            إعداداتالاتصالبالسيرفرToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,7 +64,7 @@
             // 
             // ملفToolStripMenuItem
             // 
-            ملفToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { تسجيلالدخولToolStripMenuItem, حفظنسخةاحتياطيةToolStripMenuItem, استعادةنسخةاحتياطيةToolStripMenuItem, تسجيلالخروجToolStripMenuItem });
+            ملفToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { تسجيلالدخولToolStripMenuItem, حفظنسخةاحتياطيةToolStripMenuItem, استعادةنسخةاحتياطيةToolStripMenuItem, إعداداتالاتصالبالسيرفرToolStripMenuItem, تسجيلالخروجToolStripMenuItem });
             ملفToolStripMenuItem.Name = "ملفToolStripMenuItem";
             ملفToolStripMenuItem.Size = new Size(52, 24);
             ملفToolStripMenuItem.Text = "ملف";
@@ -71,27 +72,28 @@
             // تسجيلالدخولToolStripMenuItem
             // 
             تسجيلالدخولToolStripMenuItem.Name = "تسجيلالدخولToolStripMenuItem";
-            تسجيلالدخولToolStripMenuItem.Size = new Size(239, 26);
+            تسجيلالدخولToolStripMenuItem.Size = new Size(249, 26);
             تسجيلالدخولToolStripMenuItem.Text = "تسجيل الدخول";
             تسجيلالدخولToolStripMenuItem.Click += تسجيلالدخولToolStripMenuItem_Click;
             // 
             // حفظنسخةاحتياطيةToolStripMenuItem
             // 
             حفظنسخةاحتياطيةToolStripMenuItem.Name = "حفظنسخةاحتياطيةToolStripMenuItem";
-            حفظنسخةاحتياطيةToolStripMenuItem.Size = new Size(239, 26);
+            حفظنسخةاحتياطيةToolStripMenuItem.Size = new Size(249, 26);
             حفظنسخةاحتياطيةToolStripMenuItem.Text = "حفظ نسخة احتياطية";
             حفظنسخةاحتياطيةToolStripMenuItem.Click += حفظنسخةاحتياطيةToolStripMenuItem_Click;
             // 
             // استعادةنسخةاحتياطيةToolStripMenuItem
             // 
             استعادةنسخةاحتياطيةToolStripMenuItem.Name = "استعادةنسخةاحتياطيةToolStripMenuItem";
-            استعادةنسخةاحتياطيةToolStripMenuItem.Size = new Size(239, 26);
+            استعادةنسخةاحتياطيةToolStripMenuItem.Size = new Size(249, 26);
             استعادةنسخةاحتياطيةToolStripMenuItem.Text = "استعادة نسخة احتياطية";
+            استعادةنسخةاحتياطيةToolStripMenuItem.Click += استعادةنسخةاحتياطيةToolStripMenuItem_Click;
             // 
             // تسجيلالخروجToolStripMenuItem
             // 
             تسجيلالخروجToolStripMenuItem.Name = "تسجيلالخروجToolStripMenuItem";
-            تسجيلالخروجToolStripMenuItem.Size = new Size(239, 26);
+            تسجيلالخروجToolStripMenuItem.Size = new Size(249, 26);
             تسجيلالخروجToolStripMenuItem.Text = "تسجيل الخروج";
             تسجيلالخروجToolStripMenuItem.Click += تسجيلالخروجToolStripMenuItem_Click;
             // 
@@ -188,6 +190,13 @@
             ادارةالمستخدمينToolStripMenuItem.Text = "ادارة المستخدمين";
             ادارةالمستخدمينToolStripMenuItem.Click += ادارةالمستخدمينToolStripMenuItem_Click;
             // 
+            // إعداداتالاتصالبالسيرفرToolStripMenuItem
+            // 
+            إعداداتالاتصالبالسيرفرToolStripMenuItem.Name = "إعداداتالاتصالبالسيرفرToolStripMenuItem";
+            إعداداتالاتصالبالسيرفرToolStripMenuItem.Size = new Size(249, 26);
+            إعداداتالاتصالبالسيرفرToolStripMenuItem.Text = "إعدادات الاتصال بالسيرفر";
+            إعداداتالاتصالبالسيرفرToolStripMenuItem.Click += إعداداتالاتصالبالسيرفرToolStripMenuItem_Click;
+            // 
             // FORM_MAIN
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -231,5 +240,6 @@
         private ToolStripMenuItem إضافةبيعجديدToolStripMenuItem;
         public ToolStripMenuItem تسجيلالدخولToolStripMenuItem;
         public ToolStripMenuItem تسجيلالخروجToolStripMenuItem;
+        private ToolStripMenuItem إعداداتالاتصالبالسيرفرToolStripMenuItem;
     }
 }
