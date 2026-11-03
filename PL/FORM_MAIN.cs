@@ -148,5 +148,15 @@ namespace Products_Management.PL
             PL.FRM_CONFIG frm = new PL.FRM_CONFIG();
             frm.ShowDialog();
         }
+
+        private void إضافةعميلجديدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void إضافةبيعجديدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
